@@ -1,0 +1,15 @@
+ver=1.0.3
+
+[deps]
+xorg-bdftopcf
+xorg-mkfontscale
+
+[srcs]
+https://www.x.org/releases/individual/font/font-bitstream-100dpi-%ver.tar.bz2
+
+[build]
+cd font-bitstream-100dpi-%ver
+%conf
+%make
+%inst
+rm %dest/share/fonts/X11/100dpi/fonts.dir

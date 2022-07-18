@@ -1,0 +1,14 @@
+ver=1.0.2
+
+[deps]
+xorg-bdftopcf
+xorg-mkfontscale
+
+[srcs]
+https://www.x.org/releases/individual/font/font-bitstream-speedo-%ver.tar.bz2
+
+[build]
+cd font-bitstream-speedo-%ver
+%conf
+%make
+%inst

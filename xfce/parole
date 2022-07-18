@@ -1,0 +1,18 @@
+ver=0.8.0
+
+[deps]
+xfce4-panel
+libnotify
+gst-plugins-good
+
+[srcs]
+http://archive.xfce.org/src/apps/%name/0.8/%name-%ver.tar.bz2
+
+[build]
+%conf \
+	 --with-x \
+	 --disable-nls \
+	 --disable-debug
+%make
+%inst
+rm -rf %dest/share/locale

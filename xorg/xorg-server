@@ -1,0 +1,41 @@
+ver=21.1.4
+
+[deps]
+libepoxy
+nettle
+xorg-bdftopcf
+xorg-font-util
+xorg-libdmx
+xorg-libxaw
+xorg-libxcomposite
+xorg-libxcursor
+xorg-libxcvt
+xorg-libxfont2
+xorg-libxft
+xorg-libxinerama
+xorg-libxres
+xorg-libxtst
+xorg-libxxf86dga
+xorg-mkfontscale
+xorg-xcb-util-keysyms
+xorg-xkbcomp
+
+[srcs]
+https://gitlab.freedesktop.org/xorg/xserver/-/archive/xorg-server-%ver/xserver-xorg-server-%ver.tar.bz2
+
+[build]
+meson setup xserver-%name-%ver build \
+	 --libexecdir=/lib/%name \
+	 --localstatedir=/var \
+	 --buildtype=plain \
+	 --wrap-mode nodownload \
+	 -D b_lto=true \
+	 -D b_pie=true \
+	 -D xkb_dir=/share/X11/xkb \
+	 -D xkb_output_dir=/var/lib/xkb \
+	 -D suid_wrapper=true \
+	 -D xorg=true
+meson compile -C build
+DESTDIR=%dest meson install -C build
+install -m 755 -d %dest/etc/X11/xorg.conf.d
+echo "needs_root_rights = yes" >> %dest/etc/X11/Xwrapper.config

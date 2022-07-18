@@ -1,0 +1,13 @@
+ver=7.7
+
+[deps]
+xorg-xf86-input-libinput
+xorg-xf86-video-vesa
+xorg-xinit
+xorg-xauth
+xorg-rgb
+xkeyboard-config
+
+[build]
+install -d %dest/etc
+echo "%name version %ver" > %dest/etc/%name

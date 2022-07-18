@@ -1,0 +1,13 @@
+ver=1.9.3
+
+[deps]
+xorg-server
+
+[srcs]
+https://www.x.org/releases/individual/driver/xf86-input-mouse-%ver.tar.bz2
+
+[build]
+cd xf86-input-mouse-%ver
+%conf
+%make
+%inst

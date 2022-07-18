@@ -1,0 +1,13 @@
+ver=0.4.1
+
+[deps]
+xorg-libxcb
+
+[srcs]
+https://xcb.freedesktop.org/dist/xcb-util-wm-%ver.tar.bz2
+
+[build]
+cd xcb-util-wm-%ver
+%conf
+%make
+%inst

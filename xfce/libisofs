@@ -1,0 +1,14 @@
+ver=1.4.0
+
+[deps]
+libburn
+
+[srcs]
+http://files.libburnia-project.org/releases/%name-%ver.tar.gz
+
+[build]
+%conf \
+	 --disable-static \
+	 --disable-debug
+%make
+%inst

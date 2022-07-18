@@ -1,0 +1,15 @@
+ver=12.10.1
+
+[deps]
+gtk
+
+[srcs]
+http://launchpad.net/%name/12.10/%ver/+download/%name-%ver.tar.gz
+
+[build]
+%conf \
+	 --libexecdir=/lib \
+	 --with-gtk=2 \
+	 --disable-static
+%make
+%inst

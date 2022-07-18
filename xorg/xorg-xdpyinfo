@@ -1,0 +1,21 @@
+ver=1.3.3
+
+[deps]
+xorg-libdmx
+xorg-libxcomposite
+xorg-libxinerama
+xorg-libxrender
+xorg-libxtst
+xorg-libxxf86dga
+xorg-libxxf86misc
+xorg-libxxf86vm
+
+[srcs]
+https://gitlab.freedesktop.org/xorg/app/xdpyinfo/-/archive/xdpyinfo-%ver/xdpyinfo-xdpyinfo-%ver.tar.bz2
+
+[build]
+cd xdpyinfo-xdpyinfo-%ver
+autoreconf -v --install
+%conf
+%make
+%inst

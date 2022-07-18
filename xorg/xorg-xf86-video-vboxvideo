@@ -1,0 +1,13 @@
+ver=1.0.0
+
+[deps]
+xorg-server
+
+[srcs]
+https://xorg.freedesktop.org/archive/individual/driver/xf86-video-vboxvideo-%ver.tar.bz2
+
+[build]
+cd xf86-video-vboxvideo-%ver
+%conf
+%make
+%inst

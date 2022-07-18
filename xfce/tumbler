@@ -1,0 +1,22 @@
+ver=0.1.31
+
+[deps]
+dbus-glib
+gdk-pixbuf
+freetype
+libpng
+libjpeg-turbo
+intltool
+
+[srcs]
+http://archive.xfce.org/src/xfce/%name/0.1/%name-%ver.tar.bz2
+
+[build]
+%conf \
+	 --disable-nls \
+	 --disable-dependency-tracking \
+	 --disable-gtk-doc \
+	 --disable-gstreamer-thumbnailer \
+%make
+%inst
+rm -rf %dest/share/{gtk-doc,locale}

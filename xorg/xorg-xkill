@@ -1,0 +1,13 @@
+ver=1.0.5
+
+[deps]
+xorg-libxmu
+
+[srcs]
+https://www.x.org/releases/individual/app/xkill-%ver.tar.bz2
+
+[build]
+cd xkill-%ver
+%conf
+%make
+%inst

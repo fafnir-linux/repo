@@ -1,0 +1,13 @@
+ver=0.4.0
+
+[deps]
+xorg-libxcb
+
+[srcs]
+https://xcb.freedesktop.org/dist/xcb-util-%ver.tar.bz2
+
+[build]
+cd xcb-util-%ver
+%conf
+%make
+%inst

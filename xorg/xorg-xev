@@ -1,0 +1,13 @@
+ver=1.2.5
+
+[deps]
+xorg-xrandr
+
+[srcs]
+https://www.x.org/releases/individual/app/xev-%ver.tar.xz
+
+[build]
+cd xev-%ver
+%conf
+%make
+%inst

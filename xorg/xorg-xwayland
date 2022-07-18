@@ -1,0 +1,22 @@
+ver=22.1.2
+
+[deps]
+dbus
+egl-wayland
+xorg-server
+
+[srcs]
+https://xorg.freedesktop.org/releases/individual/xserver/xwayland-%ver.tar.xz
+
+[build]
+meson setup xwayland-%ver build \
+	 --buildtype=plain \
+	 --wrap-mode nodownload \
+	 -D b_lto=true \
+	 -D b_pie=true \
+	 -D xkb_dir=/share/X11/xkb \
+	 -D xkb_output_dir=/var/lib/xkb
+meson compile -C build
+DESTDIR=%dest meson install -C build
+rm -r %dest/lib/xorg/protocol.txt
+rm -r %dest/share/man/man1/Xserver.1

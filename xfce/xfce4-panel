@@ -1,0 +1,25 @@
+ver=4.12.0
+
+[deps]
+libxfce4ui
+exo
+libwnck
+garcon
+
+[srcs]
+http://archive.xfce.org/src/xfce/%name/4.12/%name-%ver.tar.bz2
+
+[build]
+%conf \
+	 --libexecdir=/lib \
+	 --disable-debug \
+	 --disable-nls \
+	 --disable-dependency-tracking \
+	 --disable-gtk3 \
+	 --disable-gtk-doc \
+	 --disable-gtk-doc-html
+%make
+%inst
+rm -rf %dest/share/{locale,gtk-doc}
+find %dest/share/xfce4/panel/plugins -type f -name '*.desktop' \
+	 -exec sed -r '/\[.+\]=/d' -i {} \;

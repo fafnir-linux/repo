@@ -1,0 +1,14 @@
+ver=1.2.3
+
+[deps]
+xorg-libxi
+
+[srcs]
+https://www.x.org/releases/individual/lib/libXtst-%ver.tar.bz2
+
+[build]
+cd libXtst-%ver
+%conf
+%make
+%inst
+rm -r %dest/share/doc

@@ -1,0 +1,16 @@
+ver=0.2.1
+
+[deps]
+thunar
+taglib
+
+[srcs]
+http://archive.xfce.org/src/thunar-plugins/%name/0.2/%name-%ver.tar.bz2
+
+[build]
+%conf --prefix=$(pkg-config --variable prefix thunarx-2) \
+	 --disable-nls
+%make
+%inst
+rm -rf %dest/share
+}

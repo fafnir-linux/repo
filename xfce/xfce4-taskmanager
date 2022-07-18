@@ -1,0 +1,20 @@
+ver=1.1.0
+
+[deps]
+xfce4
+
+[srcs]
+http://archive.xfce.org/src/apps/%name/1.1/%name-%ver.tar.bz2
+
+[build]
+%conf \
+	 --disable-dependency-tracking \
+	 --disable-debug \
+	 --disable-nls \
+	 --disable-gksu \
+	 --enable-gtk3 \
+%make
+%inst
+rm -rf %dest/share/{doc,locale}
+find %dest/share/applications -type f -name '*.desktop' \
+	 -exec sed -r '/\[.+\]=/d' -i {} \;

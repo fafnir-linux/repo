@@ -1,0 +1,14 @@
+ver=1.1
+
+[deps]
+harfbuzz
+xorg-libxfont
+
+[srcs]
+https://www.x.org/releases/individual/app/bdftopcf-%ver.tar.bz2
+
+[build]
+cd bdftopcf-%ver
+%conf
+%make
+%inst

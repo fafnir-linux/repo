@@ -1,0 +1,15 @@
+ver=1.1.3
+
+[deps]
+xorg-xorgproto
+
+[srcs]
+https://www.x.org/releases/individual/lib/libXdmcp-%ver.tar.bz2
+
+[build]
+cd libXdmcp-%ver
+%conf
+%make
+%inst
+rm %dest/share/doc/libXdmcp/xdmcp.xml
+find %dest/share -type d -delete

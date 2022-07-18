@@ -1,0 +1,15 @@
+ver=1.0.4
+
+[deps]
+fontconfig
+xorg-mkfontscale
+
+[srcs]
+https://www.x.org/releases/individual/font/font-xfree86-type1-%ver.tar.bz2
+
+[build]
+cd font-xfree86-type1-%ver
+%conf
+%make
+%inst
+rm %dest/share/fonts/X11/Type1/fonts.{dir,scale}

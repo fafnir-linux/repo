@@ -1,0 +1,16 @@
+ver=2.0.5
+
+[deps]
+bzip2
+freetype
+xorg-libfontenc
+xorg-xtrans
+
+[srcs]
+https://www.x.org/releases/individual/lib/libXfont2-%ver.tar.bz2
+
+[build]
+cd libXfont2-%ver
+%conf --disable-selective-werror
+%make
+%inst

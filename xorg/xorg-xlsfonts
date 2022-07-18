@@ -1,0 +1,13 @@
+ver=1.0.7
+
+[deps]
+xorg-libx11
+
+[srcs]
+https://www.x.org/releases/individual/app/xlsfonts-%ver.tar.xz
+
+[build]
+cd xlsfonts-%ver
+%conf
+%make
+%inst

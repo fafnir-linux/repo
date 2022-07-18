@@ -1,0 +1,23 @@
+ver=0.6.3
+
+[deps]
+exo
+vte
+dbus-glib
+
+[srcs]
+http://archive.xfce.org/src/apps/%name/0.6/%name-%ver.tar.bz2
+
+[build]
+%conf \
+	 --mandir=/man \
+	 --libexecdir=/bin \
+	 --disable-static \
+	 --disable-debug \
+	 --disable-nls \
+	 --disable-dependency-tracking \
+%make
+%inst
+rm -rf %dest/share/locale
+rm -rf %dest/share/gnome-control-center
+rm -rf %dest/man/{??,??_??}

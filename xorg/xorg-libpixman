@@ -1,0 +1,11 @@
+ver=0.40.0
+
+[srcs]
+https://www.x.org/releases/individual/lib/pixman-%ver.tar.xz
+
+[build]
+cd pixman-%ver
+sed -i -e 's|^SUBDIRS *=.*|SUBDIRS = pixman|' Makefile.in
+%conf
+%make
+%inst

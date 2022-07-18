@@ -1,0 +1,19 @@
+ver=1.2.4
+
+[deps]
+xfce4-panel
+
+[srcs]
+http://archive.xfce.org/src/panel-plugins/%name/1.2/%name-%ver.tar.bz2
+
+[build]
+sed -i panel-plugin/Makefile.* -e 's|panel-plugins|panel/plugins|g'
+%conf \
+	 --libexecdir=/lib \
+	 --disable-static \
+	 --disable-debug
+%make
+%inst
+rm -rf %dest/share/locale
+find %dest/share/xfce4/panel/plugins -type f -name '*.desktop' \
+	 -exec sed -r '/\[.+\]=/d' -i {} \;

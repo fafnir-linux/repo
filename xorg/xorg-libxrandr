@@ -1,0 +1,14 @@
+ver=1.5.2
+
+[deps]
+xorg-libxext
+xorg-libxrender
+
+[srcs]
+https://www.x.org/releases/individual/lib/libXrandr-%ver.tar.bz2
+
+[build]
+cd libXrandr-%ver
+%conf
+%make
+%inst

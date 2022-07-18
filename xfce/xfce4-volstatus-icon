@@ -1,0 +1,16 @@
+ver=0.1.0
+
+[deps]
+hal
+exo
+xfce4-panel
+
+[srcs]
+http://archive.xfce.org/src/apps/%name/0.1/%name-%ver.tar.bz2
+
+[build]
+%conf \
+	 --with-x \
+	 --disable-debug
+%make
+install -D %name/%name %dest/bin/%name

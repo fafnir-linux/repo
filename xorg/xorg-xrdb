@@ -1,0 +1,13 @@
+ver=1.2.1
+
+[deps]
+xorg-libxmu
+
+[srcs]
+https://www.x.org/releases/individual/app/xrdb-%ver.tar.bz2
+
+[build]
+cd xrdb-%ver
+%conf
+%make
+%inst

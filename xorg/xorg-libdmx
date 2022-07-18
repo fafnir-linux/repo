@@ -1,0 +1,13 @@
+ver=1.1.4
+
+[deps]
+xorg-libxext
+
+[srcs]
+https://www.x.org/releases/individual/lib/libdmx-%ver.tar.bz2
+
+[build]
+cd libdmx-%ver
+%conf
+%make
+%inst

@@ -1,0 +1,15 @@
+ver=0.1.3.99
+
+[deps]
+xfce4-panel
+
+[srcs]
+http://archive.xfce.org/src/panel-plugins/%name/${version%.*.*}/%name-%ver.tar.bz2
+
+[build]
+%conf \
+	 --libexecdir=/lib \
+	 --disable-debug
+%make
+%inst
+rm -rf %dest/share/locale

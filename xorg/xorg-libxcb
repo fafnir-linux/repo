@@ -1,0 +1,17 @@
+ver=1.15
+
+[deps]
+xorg-libxau
+xorg-libxdmcp
+xorg-xcb-proto
+
+[srcs]
+https://xorg.freedesktop.org/archive/individual/lib/libxcb-%ver.tar.xz
+
+[build]
+cd libxcb-%ver
+PYTHON=/bin/python3 \
+%conf
+%make
+%inst
+rm -rf %dest/share

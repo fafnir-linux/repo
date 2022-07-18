@@ -1,0 +1,13 @@
+ver=1.2.1
+
+[deps]
+xorg-libxext
+
+[srcs]
+https://www.x.org/releases/individual/lib/libXres-%ver.tar.bz2
+
+[build]
+cd libXres-%ver
+%conf
+%make
+%inst

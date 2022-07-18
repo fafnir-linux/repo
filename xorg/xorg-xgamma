@@ -1,0 +1,13 @@
+ver=1.0.6
+
+[deps]
+xorg-libxxf86vm
+
+[srcs]
+https://www.x.org/releases/individual/app/xgamma-%ver.tar.bz2
+
+[build]
+cd xgamma-%ver
+%conf
+%make
+%inst

@@ -1,0 +1,13 @@
+ver=1.0.9
+
+[deps]
+xorg-xorgproto
+
+[srcs]
+https://www.x.org/releases/individual/lib/libXau-%ver.tar.bz2
+
+[build]
+cd libXau-%ver
+%conf
+%make
+%inst

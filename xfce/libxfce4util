@@ -1,0 +1,16 @@
+ver=4.12.1
+
+[deps]
+glib
+intltool
+
+[srcs]
+http://archive.xfce.org/src/xfce/%name/4.12/%name-%ver.tar.bz2
+
+[build]
+%conf \
+	 --disable-static \
+	 --disable-debug
+%make
+%inst
+rm -r %dest/share

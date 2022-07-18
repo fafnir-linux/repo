@@ -1,0 +1,12 @@
+ver=9.0.2
+
+[deps]
+mesa
+
+[srcs]
+https://mesa.freedesktop.org/archive/%name/%name-%ver.tar.xz
+
+[build]
+%conf
+%make
+%inst

@@ -1,0 +1,14 @@
+ver=1.2.1
+
+[deps]
+xorg-libxfixes
+xorg-libxrender
+
+[srcs]
+https://www.x.org/releases/individual/lib/libXcursor-%ver.tar.xz
+
+[build]
+cd libXcursor-%ver
+%conf
+%make
+%inst

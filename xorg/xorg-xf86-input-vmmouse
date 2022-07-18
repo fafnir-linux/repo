@@ -1,0 +1,14 @@
+ver=13.1.0
+
+[deps]
+xorg-server
+
+[srcs]
+https://www.x.org/releases/individual/driver/xf86-input-vmmouse-%ver.tar.bz2
+
+[build]
+cd xf86-input-vmmouse-%ver
+%conf \
+	 --with-udev-rules-dir=/lib/udev/rules.d
+%make
+%inst

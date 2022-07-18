@@ -1,0 +1,14 @@
+ver=1.4.1
+
+[deps]
+xorg-server
+
+[srcs]
+https://www.x.org/releases/individual/app/xinit-%ver.tar.bz2
+
+[build]
+cd xinit-%ver
+%conf \
+	 --sysconfdir=/etc
+%make
+%inst

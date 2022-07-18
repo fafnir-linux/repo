@@ -1,0 +1,13 @@
+ver=1.1.4
+
+[deps]
+xorg-libxext
+
+[srcs]
+https://www.x.org/releases/individual/lib/libXxf86vm-%ver.tar.bz2
+
+[build]
+cd libXxf86vm-%ver
+%conf
+%make
+%inst

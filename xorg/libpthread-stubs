@@ -1,0 +1,9 @@
+ver=0.4
+
+[srcs]
+https://xcb.freedesktop.org/dist/%name-%ver.tar.bz2
+
+[build]
+%conf
+%make
+%inst

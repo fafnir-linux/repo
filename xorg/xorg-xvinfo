@@ -1,0 +1,13 @@
+ver=1.1.4
+
+[deps]
+xorg-libxv
+
+[srcs]
+https://www.x.org/releases/individual/app/xvinfo-%ver.tar.bz2
+
+[build]
+cd xvinfo-%ver
+%conf
+%make
+%inst

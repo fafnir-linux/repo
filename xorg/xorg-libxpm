@@ -1,0 +1,14 @@
+ver=3.5.13
+
+[deps]
+xorg-libxext
+xorg-libxt
+
+[srcs]
+https://www.x.org/releases/individual/lib/libXpm-%ver.tar.bz2
+
+[build]
+cd libXpm-%ver
+%conf
+%make
+%inst

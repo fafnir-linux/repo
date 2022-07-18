@@ -1,0 +1,32 @@
+ver=1.6.10
+
+[deps]
+xfce4-panel
+libpng
+gudev
+shared-mime-info
+tumbler
+polkit
+
+[srcs]
+http://archive.xfce.org/src/xfce/%name/1.6/Thunar-%ver.tar.bz2
+
+[build]
+%conf \
+	 --mandir=/man \
+	 --libexecdir=/lib/thunar \
+	 --disable-nls \
+	 --disable-static \
+	 --disable-debug \
+	 --disable-dependency-tracking \
+	 --enable-dbus \
+	 --enable-gudev \
+	 --enable-tpa-plugin \
+	 --enable-uca-plugin \
+	 --enable-sbr-plugin \
+	 --enable-wallpaper-plugin \
+%make
+%inst
+rm -rf %dest/share/{locale,doc,gtk-doc}
+find %dest/share -type f -name '*.desktop' \
+	 -exec sed -r '/\[.+\]=/d' -i {} \;

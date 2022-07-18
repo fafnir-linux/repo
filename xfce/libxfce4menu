@@ -1,0 +1,16 @@
+ver=4.6.2
+
+[deps]
+gtk,
+libxfce4util
+
+[srcs]
+http://archive.xfce.org/xfce/%ver/src/%name-%ver.tar.bz2
+
+[build]
+%conf \
+	 --disable-static \
+	 --disable-debug
+%make
+%inst
+rm -r %dest/share

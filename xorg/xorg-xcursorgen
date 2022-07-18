@@ -1,0 +1,14 @@
+ver=1.0.7
+
+[deps]
+libpng
+xorg-libxcursor
+
+[srcs]
+https://www.x.org/releases/individual/app/xcursorgen-%ver.tar.bz2
+
+[build]
+cd xcursorgen-%ver
+%conf
+%make
+%inst

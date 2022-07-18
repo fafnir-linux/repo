@@ -1,0 +1,15 @@
+ver=1.0.14
+
+[deps]
+xorg-libxmu
+xorg-libxpm
+
+[srcs]
+https://www.x.org/releases/individual/lib/libXaw-%ver.tar.bz2
+
+[build]
+cd libXaw-%ver
+%conf \
+	 --disable-specs
+%make
+%inst

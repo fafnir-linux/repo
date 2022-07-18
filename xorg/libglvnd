@@ -1,0 +1,21 @@
+ver=1.4.0
+
+[deps]
+xorg-libxext
+
+[srcs]
+https://github.com/NVIDIA/%name/archive/v%ver/%name-%ver.tar.gz
+
+[build]
+PKGMK_GLVND+=' -D x11=enabled -D glx=enabled'
+meson setup %name-%ver build %destMK_GLVND \
+	 --buildtype=plain \
+	 --wrap-mode nodownload \
+	 -D b_lto=true \
+	 -D b_pie=true \
+	 -D gles1=false \
+	 -D egl=true \
+	 -D tls=false
+meson compile -C build
+DESTDIR=%dest meson install -C build
+install -m 0644 %files/eglplatform.h %dest/include/EGL/

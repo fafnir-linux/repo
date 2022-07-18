@@ -1,0 +1,15 @@
+ver=1.6.3
+
+[deps]
+xorg-libxi
+xorg-libxinerama
+xorg-libxrandr
+
+[srcs]
+https://www.x.org/releases/individual/app/xinput-%ver.tar.bz2
+
+[build]
+cd xinput-%ver
+%conf
+%make
+%inst

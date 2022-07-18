@@ -1,0 +1,19 @@
+ver=0.8.0
+
+[deps]
+thunar
+libexif
+
+[srcs]
+http://archive.xfce.org/src/apps/%name/0.8/%name-%ver.tar.bz2
+
+[build]
+%conf \
+	 --disable-nls \
+	 --disable-debug \
+	 --disable-dependency-tracking
+%make
+%inst
+rm -r %dest/share/locale
+find %dest/share -type f -name '*.desktop' \
+	 -exec sed -r '/\[.+\]=/d' -i {} \;

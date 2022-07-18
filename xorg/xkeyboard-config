@@ -1,0 +1,23 @@
+ver=2.36
+
+[deps]
+libxslt
+xorg-xkbcomp
+
+[srcs]
+https://www.x.org/releases/individual/data/%name/%name-%ver.tar.xz
+
+[build]
+meson setup %name-%ver build \
+	 --buildtype plain \
+	 --wrap-mode nodownload \
+	 -D b_lto=true \
+	 -D b_pie=true \
+	 -D xkb-base="/usr/share/X11/xkb" \
+	 -D compat-rules=true \
+	 -D xorg-rules-symlinks=true
+meson compile -C build
+DESTDIR=%dest meson install -C build
+install -m755 -d %dest/var/lib/xkb
+find %dest -name README -delete
+rm -r %dest/share/locale

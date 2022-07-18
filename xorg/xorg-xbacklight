@@ -1,0 +1,13 @@
+ver=1.2.3
+
+[deps]
+xorg-xcb-util
+
+[srcs]
+https://www.x.org/releases/individual/app/xbacklight-%ver.tar.bz2
+
+[build]
+cd xbacklight-%ver
+%conf
+%make
+%inst

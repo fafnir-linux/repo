@@ -1,0 +1,14 @@
+ver=1.1.4
+
+[deps]
+xorg-xorgproto
+zlib
+
+[srcs]
+https://www.x.org/releases/individual/lib/libfontenc-%ver.tar.bz2
+
+[build]
+cd libfontenc-%ver
+%conf
+%make
+%inst

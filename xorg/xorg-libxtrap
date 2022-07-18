@@ -1,0 +1,14 @@
+ver=1.0.1
+
+[deps]
+xorg-libxext
+xorg-libxt
+
+[srcs]
+https://www.x.org/releases/individual/lib/libXTrap-%ver.tar.bz2
+
+[build]
+cd libXTrap-%ver
+%conf
+%make
+%inst

@@ -1,0 +1,13 @@
+ver=1.5
+
+[deps]
+xorg-libxrender
+
+[srcs]
+https://www.x.org/releases/individual/app/rendercheck-%ver.tar.bz2
+
+[build]
+cd rendercheck-%ver
+%conf
+%make
+%inst

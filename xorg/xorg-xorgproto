@@ -1,0 +1,21 @@
+ver=2022.1
+
+[deps]
+meson
+ninja
+
+[srcs]
+https://xorg.freedesktop.org/archive/individual/proto/xorgproto-%ver.tar.bz2
+
+[build]
+meson setup xorgproto-%ver build \
+	 --buildtype=plain \
+	 --wrap-mode nodownload \
+	 -D b_lto=true \
+	 -D b_pie=true \
+	 -D legacy=true
+meson compile -C build
+DESTDIR=%dest meson install -C build
+rm %dest/include/X11/extensions/{apple,windows}*
+rm %dest/share/pkgconfig/{apple,windows}wmproto.pc
+rm -r %dest/share/doc

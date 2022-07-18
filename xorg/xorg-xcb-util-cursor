@@ -1,0 +1,14 @@
+ver=0.1.3
+
+[deps]
+xorg-xcb-util-image
+xorg-xcb-util-renderutil
+
+[srcs]
+https://xcb.freedesktop.org/dist/xcb-util-cursor-%ver.tar.bz2
+
+[build]
+cd xcb-util-cursor-%ver
+%conf
+%make
+%inst

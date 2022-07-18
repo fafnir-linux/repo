@@ -1,0 +1,23 @@
+ver=0.4.0
+
+[deps]
+libxfce4ui
+libxfce4util
+
+[srcs]
+http://archive.xfce.org/src/libs/%name/0.4/%name-%ver.tar.bz2
+
+[build]
+%conf \
+	 --disable-static \
+	 --disable-debug \
+	 --disable-dependency-tracking \
+	 --disable-nls \
+	 --disable-gtk-doc \
+	 --disable-gtk-doc-html \
+	 --disable-gtk-doc-pdf \
+%make
+%inst
+rm -r %dest/share/{locale,gtk-doc}
+find %dest/share/desktop-directories -type f -name '*.directory' \
+	 -exec sed -r '/\[.+\]=/d' -i {} \;

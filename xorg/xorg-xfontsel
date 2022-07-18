@@ -1,0 +1,13 @@
+ver=1.1.0
+
+[deps]
+xorg-libxaw
+
+[srcs]
+https://www.x.org/releases/individual/app/xfontsel-%ver.tar.xz
+
+[build]
+cd xfontsel-%ver
+%conf
+%make
+%inst

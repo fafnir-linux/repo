@@ -1,0 +1,25 @@
+ver=4.12.1
+
+[deps]
+libxfce4ui
+exo
+libnotify
+libxklavier
+garcon
+
+[srcs]
+http://archive.xfce.org/src/xfce/%name/4.12/%name-%ver.tar.bz2
+
+[build]
+
+%conf \
+	 --enable-xrandr \
+	 --enable-sound-settings \
+	 --enable-libnotify \
+	 --enable-libxklavier \
+	 --enable-xcursor \
+	 --enable-pluggable-dialogs \
+	 --disable-debug
+%make
+%inst
+rm -rf %dest/share/{locale,doc}

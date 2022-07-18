@@ -1,0 +1,15 @@
+ver=0.1.11
+
+[deps]
+gtk
+
+[srcs]
+http://releases.chipx86.com/%name/%name/%name-%ver.tar.bz2
+
+[build]
+sed -e '/^SUBDIRS = /s/docs //' -i Makefile.in
+%conf \
+	 --disable-static
+%make
+%inst
+rm -rf %dest/share

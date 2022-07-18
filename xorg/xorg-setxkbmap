@@ -1,0 +1,13 @@
+ver=1.3.3
+
+[deps]
+xorg-libxkbfile
+
+[srcs]
+https://www.x.org/releases/individual/app/setxkbmap-%ver.tar.xz
+
+[build]
+cd setxkbmap-%ver
+%conf
+%make
+%inst

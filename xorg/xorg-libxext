@@ -1,0 +1,14 @@
+ver=1.3.4
+
+[deps]
+xorg-libx11
+
+[srcs]
+https://www.x.org/releases/individual/lib/libXext-%ver.tar.bz2
+
+[build]
+cd libXext-%ver
+%conf
+%make
+%inst
+rm -r %dest/share/doc

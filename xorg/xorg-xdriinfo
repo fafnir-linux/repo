@@ -1,0 +1,13 @@
+ver=1.0.6
+
+[deps]
+mesa
+
+[srcs]
+https://www.x.org/releases/individual/app/xdriinfo-%ver.tar.bz2
+
+[build]
+cd xdriinfo-%ver
+%conf
+%make
+%inst

@@ -1,0 +1,18 @@
+ver=1.3.4
+
+[deps]
+thunar
+
+[srcs]
+http://archive.xfce.org/src/panel-plugins/%name/1.3/%name-%ver.tar.bz2
+
+[build]
+sed -i panel-plugin/Makefile.{in,am} -e 's|panel-plugins|panel/plugins|g'
+%conf \
+	 --libexecdir=/lib \
+	 --disable-debug
+%make
+%inst
+rm -rf %dest/share/locale
+find %dest/share/xfce4/panel/plugins -type f -name '*.desktop' \
+	 -exec sed -r '/\[.+\]=/d' -i {} \;

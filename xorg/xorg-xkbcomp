@@ -1,0 +1,13 @@
+ver=1.4.5
+
+[deps]
+xorg-libxkbfile
+
+[srcs]
+https://www.x.org/releases/individual/app/xkbcomp-%ver.tar.bz2
+
+[build]
+cd xkbcomp-%ver
+%conf
+%make
+make DESTDIR=%dest pkgconfigdir=/share/pkgconfig install

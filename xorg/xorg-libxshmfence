@@ -1,0 +1,14 @@
+ver=1.3
+
+[deps]
+xorg-util-macros
+xorg-xorgproto
+
+[srcs]
+https://www.x.org/archive/individual/lib/libxshmfence-%ver.tar.bz2
+
+[build]
+cd libxshmfence-%ver
+%conf
+%make
+%inst

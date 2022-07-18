@@ -1,0 +1,14 @@
+ver=0.4.5
+
+[deps]
+xorg-libxext
+xorg-libxfixes
+
+[srcs]
+https://www.x.org/releases/individual/lib/libXcomposite-%ver.tar.bz2
+
+[build]
+cd libXcomposite-%ver
+%conf
+%make
+%inst

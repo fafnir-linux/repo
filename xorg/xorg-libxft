@@ -1,0 +1,14 @@
+ver=2.3.4
+
+[deps]
+harfbuzz
+util-linux
+
+[srcs]
+https://www.x.org/releases/individual/lib/libXft-%ver.tar.bz2
+
+[build]
+cd libXft-%ver
+%conf
+%make
+%inst

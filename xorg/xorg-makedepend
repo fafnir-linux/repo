@@ -1,0 +1,13 @@
+ver=1.0.6
+
+[deps]
+xorg-xorgproto
+
+[srcs]
+https://www.x.org/releases/individual/util/makedepend-%ver.tar.bz2
+
+[build]
+cd makedepend-%ver
+%conf
+%make
+%inst

@@ -1,0 +1,10 @@
+ver=1.0.3
+
+[srcs]
+https://www.x.org/releases/individual/util/gccmakedep-%ver.tar.bz2
+
+[build]
+cd gccmakedep-%ver
+%conf
+%make
+%inst

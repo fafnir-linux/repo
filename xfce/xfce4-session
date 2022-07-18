@@ -1,0 +1,26 @@
+ver=4.12.1
+
+[deps]
+libxfce4util
+libxfce4ui
+libwnck
+xorg-xinit
+xorg-iceauth
+sudo
+polkit
+
+[srcs]
+http://archive.xfce.org/src/xfce/%name/4.12/%name-%ver.tar.bz2
+
+[build]
+%conf \
+	 --mandir=/man \
+	 --libexecdir=/lib/xfce4 \
+	 --disable-static \
+	 --disable-debug
+%make
+%inst
+rm -rf %dest/share/{locale,doc}
+find %dest/share -type f -name '*.desktop' \
+	 -exec sed -r '/\[.+\]=/d' -i {} \;
+}

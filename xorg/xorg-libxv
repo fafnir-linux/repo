@@ -1,0 +1,13 @@
+ver=1.0.11
+
+[deps]
+xorg-libxext
+
+[srcs]
+https://www.x.org/releases/individual/lib/libXv-%ver.tar.bz2
+
+[build]
+cd libXv-%ver
+%conf
+%make
+%inst

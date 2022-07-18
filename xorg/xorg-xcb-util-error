@@ -1,0 +1,13 @@
+ver=1.0
+
+[deps]
+xorg-xcb-util
+
+[srcs]
+https://xcb.freedesktop.org/dist/xcb-util-errors-%ver.tar.bz2
+
+[build]
+cd xcb-util-errors-%ver
+%conf
+%make
+%inst

@@ -1,0 +1,20 @@
+ver=0.2.4
+
+[deps]
+libxfce4ui
+libnotify
+
+[srcs]
+http://archive.xfce.org/src/apps/%name/0.2/%name-%ver.tar.bz2
+
+[build]
+%conf \
+	 --libexecdir=/lib \
+	 --mandir=/man \
+	 --disable-static \
+	 --disable-debug
+%make
+%inst
+rm -rf %dest/share/{locale,doc}
+find %dest/share/applications -type f -name '*.desktop' \
+	 -exec sed -r '/\[.+\]=/d' -i {} \;

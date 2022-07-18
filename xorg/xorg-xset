@@ -1,0 +1,14 @@
+ver=1.2.4
+
+[deps]
+xorg-libxmu
+
+[srcs]
+https://www.x.org/releases/individual/app/xset-%ver.tar.bz2
+
+[build]
+cd xset-%ver
+%conf \
+	 --without-xf86misc
+%make
+%inst

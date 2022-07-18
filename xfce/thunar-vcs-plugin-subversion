@@ -1,0 +1,20 @@
+ver=0.1.4
+
+[deps]
+thunar-vcs-plugin
+subversion
+
+[srcs]
+http://archive.xfce.org/src/thunar-plugins/%name/0.1/%nameBuild-%ver.tar.bz2
+
+[build]
+%conf \
+	 --libexecdir=/lib/thunar \
+	 --disable-nls \
+	 --disable-dependency-tracking \
+	 --disable-git
+%make
+%inst
+rm -r %dest/share/locale
+rm -r %dest/lib/thunarx-2/
+find %dest/share/icons/hicolor -name git.png -delete

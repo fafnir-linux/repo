@@ -1,0 +1,14 @@
+ver=1.8
+
+[deps]
+xorg-libxext
+xorg-libxfixes
+
+[srcs]
+https://www.x.org/releases/individual/lib/libXi-%ver.tar.bz2
+
+[build]
+cd libXi-%ver
+%conf --disable-{docs,specs}
+%make
+%inst

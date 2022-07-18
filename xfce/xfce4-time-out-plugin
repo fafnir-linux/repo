@@ -1,0 +1,21 @@
+ver=1.0.2
+
+[deps]
+xfce4-panel
+libxfce4util
+libxfcegui4
+
+[srcs]
+http://archive.xfce.org/src/panel-plugins/%name/1.0/%name-%ver.tar.bz2
+
+[build]
+%conf \
+	 --libexecdir=/lib \
+	 --disable-debug \
+	 --disable-nls \
+	 --disable-dependency-tracking
+%make
+%inst
+rm -rf %dest/share/locale
+find %dest/share/xfce4/panel/plugins -type f -name '*.desktop' \
+	 -exec sed -r '/\[.+\]=/d' -i {} \;

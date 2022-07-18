@@ -1,0 +1,19 @@
+ver=4.12.1
+
+[deps]
+gtk
+xfconf
+startup-notification
+
+[srcs]
+http://archive.xfce.org/src/xfce/%name/4.12/%name-%ver.tar.bz2
+
+[build]
+%conf \
+	 --disable-static \
+	 --disable-debug
+%make
+%inst
+rm -r %dest/share/{locale,gtk-doc}
+find %dest/share/applications -type f -name '*.desktop' \
+	 -exec sed -r '/\[.+\]=/d' -i {} \;

@@ -1,0 +1,14 @@
+ver=1.6.1
+
+[deps]
+xorg-libxft
+xorg-libxmu
+
+[srcs]
+https://www.x.org/releases/individual/app/x11perf-%ver.tar.bz2
+
+[build]
+cd x11perf-%ver
+%conf
+%make
+%inst

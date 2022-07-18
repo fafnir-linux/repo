@@ -1,0 +1,13 @@
+ver=1.1.4
+
+[deps]
+xorg-libxext
+
+[srcs]
+https://www.x.org/releases/individual/lib/libXinerama-%ver.tar.bz2
+
+[build]
+cd libXinerama-%ver
+%conf
+%make
+%inst

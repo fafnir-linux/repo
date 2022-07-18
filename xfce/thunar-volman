@@ -1,0 +1,18 @@
+ver=0.8.1
+
+[deps]
+thunar
+
+[srcs]
+http://archive.xfce.org/src/xfce/%name/0.8/%name-%ver.tar.bz2
+
+[build]
+%conf \
+	 --libexecdir=/bin \
+	 --disable-static \
+	 --disable-dependency-tracking \
+	 --disable-debug \
+	 --disable-nls
+%make
+%inst
+rm -rf %dest/share/locale

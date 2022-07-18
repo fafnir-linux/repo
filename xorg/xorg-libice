@@ -1,0 +1,16 @@
+ver=1.0.10
+
+[deps]
+xorg-xorgproto
+xorg-xtrans
+
+[srcs]
+https://www.x.org/releases/individual/lib/libICE-%ver.tar.bz2
+
+[build]
+cd libICE-%ver
+%conf --disable-docs
+%make
+%inst
+rm %dest/share/doc/libICE/ice.xml
+find %dest/share -type d -delete

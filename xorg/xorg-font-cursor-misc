@@ -1,0 +1,15 @@
+ver=1.0.3
+
+[deps]
+xorg-bdftopcf
+xorg-mkfontscale
+
+[srcs]
+https://www.x.org/releases/individual/font/font-cursor-misc-%ver.tar.bz2
+
+[build]
+cd font-cursor-misc-%ver
+%conf
+%make
+%inst
+rm %dest/share/fonts/X11/misc/fonts.dir

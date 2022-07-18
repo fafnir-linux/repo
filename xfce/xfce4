@@ -1,0 +1,17 @@
+ver=4.12.0
+
+[deps]
+xfconf
+xfce4-session
+xfdesktop
+xfwm4
+xfwm4-themes
+xfce4-panel
+xfce4-settings
+gtk-xfce-engine
+tumbler
+elementary-xfce-icon-theme
+
+[build]
+install -d %dest/etc
+echo "%name version %ver" > %dest/etc/%name

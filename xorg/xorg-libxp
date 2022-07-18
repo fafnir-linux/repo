@@ -1,0 +1,13 @@
+ver=1.0.3
+
+[deps]
+xorg-libxext
+
+[srcs]
+https://www.x.org/releases/individual/lib/libXp-%ver.tar.bz2
+
+[build]
+cd libXp-%ver
+%conf
+%make
+%inst

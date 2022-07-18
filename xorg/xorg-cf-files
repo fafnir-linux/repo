@@ -1,0 +1,12 @@
+ver=1.0.7
+
+[deps]
+xorg-util-macros
+
+[srcs]
+https://www.x.org/releases/individual/util/%name-%ver.tar.bz2
+
+[build]
+%conf
+%make
+%inst

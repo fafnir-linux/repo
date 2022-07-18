@@ -1,0 +1,13 @@
+ver=1.0.8
+
+[deps]
+xorg-libxmu
+
+[srcs]
+https://www.x.org/releases/individual/app/xhost-%ver.tar.bz2
+
+[build]
+cd xhost-%ver
+%conf
+%make
+%inst

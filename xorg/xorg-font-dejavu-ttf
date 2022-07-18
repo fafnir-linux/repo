@@ -1,0 +1,17 @@
+ver=2.37
+
+[deps]
+fontconfig
+xorg-mkfontscale
+
+[srcs]
+http://downloads.sourceforge.net/project/dejavu/dejavu/%ver/dejavu-fonts-ttf-%ver.tar.bz2
+
+[build]
+cd dejavu-fonts-ttf-%ver
+install -m 0755 -d %dest/share/fonts/X11/TTF
+install -m 0644 -t %dest/share/fonts/X11/TTF ttf/*.ttf
+install -m 0755 -d %dest/etc/fonts/conf.{d,avail}
+install -m 0644 -t %dest/etc/fonts/conf.avail fontconfig/*.conf
+cd %dest/etc/fonts/conf.d
+ln -s ../conf.avail/* .

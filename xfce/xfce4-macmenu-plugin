@@ -1,0 +1,17 @@
+ver=1.0.15
+
+[deps]
+xfce4-panel,libwnck
+
+[srcs]
+http://aur.archlinux.org/packages/%name/%name.tar.gz
+
+[build]
+gcc -std=gnu99 -Wall -fno-strict-aliasing -DFOR_XFCE \
+`pkg-config --cflags --libs libwnck-1.0 libxfce4panel-1.0 libxfce4util-1.0` \
+$CFLAGS $LDFLAGS -o %name macmenu-applet.c
+sed 's|/usr/lib/xfce4|/usr/lib|' -i %name.desktop
+install -D -m 0755 %name %dest/lib/xfce4/panel-plugins/%name
+install -D -m 0655 %name.desktop %dest/share/xfce4/panel-plugins/%name.desktop
+find %dest/share/xfce4/panel-plugins -type f -name '*.desktop' \
+	 -exec sed -r '/\[.+\]=/d' -i {} \;

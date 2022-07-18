@@ -1,0 +1,19 @@
+ver=1.5
+
+[deps]
+xorg-libxext
+meson
+ninja
+
+[srcs]
+https://gitlab.freedesktop.org/vdpau/%name/-/archive/%ver//%name-%ver.tar.bz2
+
+[build]
+meson setup build %name-%ver \
+	 --buildtype=plain \
+	 --wrap-mode nodownload \
+	 -D b_lto=true \
+	 -D b_pie=true \
+	 -D documentation=false
+meson compile -C build -j ${JOBS:-1}
+DESTDIR=%dest meson install -C build

@@ -1,0 +1,16 @@
+ver=1.1.2
+
+[deps]
+xorg-bdftopcf
+xorg-font-util
+xorg-mkfontscale
+
+[srcs]
+https://www.x.org/releases/individual/font/font-schumacher-misc-%ver.tar.bz2
+
+[build]
+cd font-schumacher-misc-%ver
+%conf
+%make
+%inst
+rm %dest/share/fonts/X11/misc/fonts.dir

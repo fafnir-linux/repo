@@ -1,0 +1,15 @@
+ver=1.1.8
+
+[deps]
+xorg-libxcomposite
+xorg-libxdamage
+xorg-libxrender
+
+[srcs]
+https://www.x.org/releases/individual/app/xcompmgr-%ver.tar.bz2
+
+[build]
+cd xcompmgr-%ver
+%conf
+%make
+%inst

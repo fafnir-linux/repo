@@ -1,0 +1,13 @@
+ver=1.5.1
+
+[deps]
+xorg-libxrandr
+
+[srcs]
+https://www.x.org/releases/individual/app/xrandr-%ver.tar.xz
+
+[build]
+cd xrandr-%ver
+%conf
+%make
+%inst

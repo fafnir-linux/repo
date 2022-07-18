@@ -1,0 +1,20 @@
+ver=0.5.4
+
+[deps]
+libisofs
+thunar
+libxfce4ui
+
+[srcs]
+http://archive.xfce.org/src/apps/%name/0.5/%name-%ver.tar.bz2
+
+[build]
+%conf \
+	 --mandir=/man \
+	 --disable-debug \
+	 --disable-gstreamer \
+	 --disable-dependency-tracking \
+	 --enable-thunar-vfs \
+%make
+%inst
+rm -rf %dest/share/locale

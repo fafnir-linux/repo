@@ -1,0 +1,16 @@
+ver=1.1.3
+
+[deps]
+xorg-libxext
+xorg-libxt
+
+[srcs]
+https://www.x.org/releases/individual/lib/libXmu-%ver.tar.bz2
+
+[build]
+cd libXmu-%ver
+%conf
+%make
+%inst
+rm %dest/share/doc/libXmu/{Xmu.xml,xlogo.svg}
+find %dest/share -type d -delete

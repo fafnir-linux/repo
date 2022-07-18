@@ -1,0 +1,11 @@
+ver=0.5
+
+[deps]
+librsvg
+
+[srcs]
+https://github.com/shimmerproject/%nameBuild/archive/v%ver.tar.gz
+
+[build]
+install -d -m 0755 %dest/share/icons
+mv %nameBuild-%ver/%nameBuild{,-dark} %dest/share/icons

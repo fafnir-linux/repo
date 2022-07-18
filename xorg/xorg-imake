@@ -1,0 +1,14 @@
+ver=1.0.8
+
+[deps]
+xorg-cf-files
+xorg-xorgproto
+
+[srcs]
+https://www.x.org/releases/individual/util/imake-%ver.tar.bz2
+
+[build]
+cd imake-%ver
+%conf
+%make
+%inst

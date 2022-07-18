@@ -1,0 +1,17 @@
+ver=0.3.1
+
+[deps]
+thunar
+xarchiver
+
+[srcs]
+http://archive.xfce.org/src/thunar-plugins/%name/0.3/%name-%ver.tar.bz2
+
+[build]
+%conf --prefix=$(pkg-config --variable prefix thunarx-2) \
+	 --libexecdir=/lib/thunar \
+	 --disable-static \
+	 --disable-nls
+%make
+%inst
+rm -r %dest/share/locale

@@ -1,0 +1,14 @@
+ver=1.15.2
+
+[deps]
+python3
+
+[srcs]
+https://xorg.freedesktop.org/archive/individual/proto/xcb-proto-%ver.tar.xz
+
+[build]
+cd xcb-proto-%ver
+PYTHON=/bin/python3 \
+%conf
+%make
+%inst

@@ -1,0 +1,14 @@
+ver=1.0.2
+
+[deps]
+xorg-libxkbfile
+xorg-libxt
+
+[srcs]
+https://www.x.org/releases/individual/lib/libxkbui-%ver.tar.bz2
+
+[build]
+cd libxkbui-%ver
+%conf
+%make
+%inst

@@ -1,0 +1,18 @@
+ver=0.1.4
+
+[deps]
+thunar
+
+[srcs]
+http://archive.xfce.org/src/thunar-plugins/%name/0.1/%name-%ver.tar.bz2
+
+[build]
+%conf \
+	 --libexecdir=/lib/thunar \
+	 --disable-nls \
+	 --disable-dependency-tracking \
+	 --disable-subversion \
+	 --disable-git
+%make
+%inst
+rm -r %dest/share

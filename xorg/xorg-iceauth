@@ -1,0 +1,13 @@
+ver=1.0.9
+
+[deps]
+xorg-server
+
+[srcs]
+https://www.x.org/releases/individual/app/iceauth-%ver.tar.xz
+
+[build]
+cd iceauth-%ver
+%conf
+%make
+%inst

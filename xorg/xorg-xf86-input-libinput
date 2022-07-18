@@ -1,0 +1,14 @@
+ver=1.2.1
+
+[deps]
+libinput
+xorg-server
+
+[srcs]
+https://www.x.org/releases/individual/driver/xf86-input-libinput-%ver.tar.xz
+
+[build]
+cd xf86-input-libinput-%ver
+%conf
+%make
+%inst

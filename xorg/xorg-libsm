@@ -1,0 +1,16 @@
+ver=1.2.3
+
+[deps]
+util-linux
+xorg-libice
+
+[srcs]
+https://www.x.org/releases/individual/lib/libSM-%ver.tar.bz2
+
+[build]
+cd libSM-%ver
+%conf
+%make
+%inst
+rm %dest/share/doc/libSM/{SMlib,xsmp}.xml
+find %dest/share -type d -delete

@@ -1,0 +1,18 @@
+ver=0.0.1
+
+[deps]
+xfce4-panel
+hal
+exo
+eject
+
+[srcs]
+http://archive.xfce.org/src/panel-plugins/%name/0.0/%name-%ver.tar.bz2
+
+[build]
+%conf \
+	 --libexecdir=/lib \
+	 --disable-debug
+%make
+%inst
+rm -rf %dest/share/locale

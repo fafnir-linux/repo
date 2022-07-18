@@ -1,0 +1,17 @@
+ver=2.99.917-916
+
+[deps]
+xorg-libxscrnsaver
+xorg-server
+
+[srcs]
+https://crux.nu/files/distfiles/xf86-video-intel-%ver.tar.xz
+
+[build]
+cd xf86-video-intel-%ver
+%conf \
+	 --libexecdir=/lib/xf86-video-intel \
+	 --enable-tools \
+	 --with-default-dri=3
+%make
+%inst

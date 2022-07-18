@@ -1,0 +1,15 @@
+ver=1.0.4
+
+[deps]
+fontconfig
+xorg-mkfontscale
+
+[srcs]
+https://www.x.org/releases/individual/font/font-misc-ethiopic-%ver.tar.bz2
+
+[build]
+cd font-misc-ethiopic-%ver
+%conf
+%make
+%inst
+rm %dest/share/fonts/X11/{O,T}TF/fonts.{dir,scale}

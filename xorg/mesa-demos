@@ -1,0 +1,21 @@
+ver=8.5.0
+
+[deps]
+glew
+glu
+meson
+ninja
+
+[srcs]
+https://archive.mesa3d.org/demos/%ver/%name-%ver.tar.bz2
+
+[build]
+meson setup build %name-%ver \
+	 --buildtype=plain \
+	 --wrap-mode nodownload \
+	 -D b_lto=true \
+	 -D b_pie=true \
+	 -D osmesa=disabled
+meson compile -C build -j ${JOBS:-1}
+install -d %dest/bin
+install -m 0755 -t %dest/bin build/src/xdemos/glx{gears,info}

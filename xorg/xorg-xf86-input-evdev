@@ -1,0 +1,15 @@
+ver=2.10.6
+
+[deps]
+mtdev
+xorg-libevdev
+xorg-server
+
+[srcs]
+https://www.x.org/releases/individual/driver/xf86-input-evdev-%ver.tar.bz2
+
+[build]
+cd xf86-input-evdev-%ver
+%conf
+%make
+%inst

@@ -1,0 +1,14 @@
+ver=1.3
+
+[deps]
+xorg-xcb-util
+xorg-libx11
+
+[srcs]
+https://github.com/Airblader/xcb-util-xrm/releases/download/v%ver/xcb-util-xrm-%ver.tar.bz2
+
+[build]
+cd xcb-util-xrm-%ver
+%conf
+%make
+%inst

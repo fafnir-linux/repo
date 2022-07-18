@@ -1,0 +1,18 @@
+ver=0.3.4
+
+[deps]
+xfce4-panel
+libwnck
+libxfcegui4
+
+[srcs]
+http://archive.xfce.org/src/panel-plugins/%name/0.3/%name-%ver.tar.bz2
+
+[build]
+%conf \
+	 --libexecdir=/lib \
+	 --disable-static \
+	 --disable-debug
+%make
+%inst
+rm -rf %dest/share/locale

@@ -1,0 +1,19 @@
+ver=1.1.13
+
+[deps]
+linux-pam
+xorg-server
+xorg-xrdb
+
+[srcs]
+https://www.x.org/releases/individual/app/xdm-%ver.tar.xz
+
+[build]
+cd xdm-%ver
+%conf \
+	 --with-xdmconfigdir=/etc/X11/xdm \
+	 --enable-xdmshell
+%make
+%inst
+install -D -m 755 %files/xdm %dest/etc/rc.d/xdm
+install -D -m 755 %files/xdm.pam %dest/etc/pam.d/xdm

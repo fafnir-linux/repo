@@ -1,0 +1,20 @@
+ver=4.10.0
+
+[deps]
+gtk
+libglade
+startup-notification
+xfconf
+
+[srcs]
+http://archive.xfce.org/src/xfce/%name/4.10/%name-%ver.tar.bz2
+
+[build]
+sed -e '/^AC_PROG_INTLTOOL/d' -i configure.in
+sed -e '/^SUBDIRS/s/po//' -i Makefile.in
+%conf \
+	 --disable-static \
+	 --disable-debug
+%make
+%inst
+rm -r %dest/share/{locale,gtk-doc}

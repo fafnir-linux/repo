@@ -1,0 +1,19 @@
+ver=4.12.3
+
+[deps]
+libxfce4ui
+
+[srcs]
+http://archive.xfce.org/src/xfce/%name/4.12/%name-%ver.tar.bz2
+
+[build]
+%conf \
+	 --libexecdir=/bin \
+	 --disable-static \
+	 --disable-debug \
+	 --disable-nls \
+	 --disable-dependency-tracking \
+%make
+%inst
+rm -rf %dest/share/{locale,doc}
+find %dest/share/themes -name README -delete

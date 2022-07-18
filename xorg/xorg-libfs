@@ -1,0 +1,16 @@
+ver=1.0.8
+
+[deps]
+xorg-xorgproto
+xorg-xtrans
+
+[srcs]
+https://www.x.org/releases/individual/lib/libFS-%ver.tar.bz2
+
+[build]
+cd libFS-%ver
+%conf
+%make
+%inst
+rm %dest/share/doc/libFS/FSlib.txt
+find %dest/share -type d -delete

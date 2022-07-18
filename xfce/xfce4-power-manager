@@ -1,0 +1,22 @@
+ver=1.5.0
+
+[deps]
+xfce4-panel
+upower
+
+[srcs]
+http://archive.xfce.org/src/xfce/%name/1.5/%name-%ver.tar.bz2
+
+[build]
+%conf \
+	 --mandir=/man \
+	 --disable-debug \
+	 --disable-dependency-tracking \
+	 --disable-nls \
+	 --disable-lxdepanel \
+	 --disable-network-manager
+%make
+%inst
+rm -rf %dest/share/{locale,doc}
+find %dest -type f -name '*.desktop' \
+	 -exec sed -r '/\[.+\]=/d' -i {} \;

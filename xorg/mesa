@@ -1,0 +1,48 @@
+ver=22.1.4
+
+[deps]
+elfutils
+libdrm
+libglvnd
+llvm
+python3-mako
+xorg-libxdamage
+xorg-libxrandr
+xorg-libxshmfence
+xorg-libxvmc
+xorg-libxxf86vm
+
+[srcs]
+https://archive.mesa3d.org/%name-%ver.tar.xz
+
+[build]
+prt-get isinst glslang && PKGMK_MESA+=' -D vulkan-layers=device-select,intel-nullhw,overlay'
+prt-get isinst vulkan-loader && PKGMK_MESA_GALLIUM+='zink,'
+prt-get isinst libvdpau && PKGMK_MESA+=' -D gallium-vdpau=enabled' || PKGMK_MESA+=' -D gallium-vdpau=disabled'
+prt-get isinst wayland-protocols && PKGMK_MESA_PLATFORMS+='wayland'
+PKGMK_MESA_PLATFORMS+=',x11'
+CFLAGS+=' -mtls-dialect=gnu'
+CXXFLAGS+=' -mtls-dialect=gnu'
+meson setup build mesa-%ver %destMK_MESA \
+	 --sysconfdir=/etc \
+	 --buildtype=plain \
+	 --wrap-mode nodownload \
+	 -D b_pie=true \
+	 -D dri3=enabled \
+	 -D egl=enabled \
+	 -D llvm=enabled \
+	 -D shared-llvm=enabled \
+	 -D gbm=enabled \
+	 -D gles1=disabled \
+	 -D gles2=enabled \
+	 -D glx=dri \
+	 -D osmesa=true \
+	 -D gallium-xa=enabled \
+	 -D gallium-drivers=${PKGMK_MESA_GALLIUM}crocus,iris,nouveau,r300,r600,radeonsi,svga,swrast,virgl \
+	 -D platforms=${PKGMK_MESA_PLATFORMS#,} \
+	 -D shared-glapi=enabled \
+	 -D vulkan-drivers=amd,intel \
+	 -D glvnd=true
+meson compile -C build -j ${JOBS:-1}
+DESTDIR=%dest meson install -C build
+ln -s libGLX_mesa.so.0 %dest/lib/libGLX_indirect.so.0

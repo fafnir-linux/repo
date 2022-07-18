@@ -1,0 +1,16 @@
+ver=1.8.1
+
+[deps]
+xorg-libxcb
+xorg-xtrans
+
+[srcs]
+https://www.x.org/releases/individual/lib/libX11-%ver.tar.xz
+
+[build]
+cd libX11-%ver
+%conf
+%make
+%inst
+rm %dest/include/X11/extensions/XKBgeom.h
+rm -r %dest/share/doc

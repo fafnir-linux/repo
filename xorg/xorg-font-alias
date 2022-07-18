@@ -1,0 +1,10 @@
+ver=1.0.4
+
+[srcs]
+https://www.x.org/releases/individual/font/font-alias-%ver.tar.bz2
+
+[build]
+cd font-alias-%ver
+%conf
+%make
+%inst

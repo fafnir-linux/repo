@@ -1,0 +1,17 @@
+ver=3.2.0
+
+[deps]
+gtk
+
+[srcs]
+http://archive.xfce.org/src/xfce/%name/3.2/%name-%ver.tar.bz2
+
+[build]
+%conf \
+	 --disable-gtk3 \
+	 --disable-static \
+	 --disable-debug \
+	 --disable-dependency-tracking \
+	 --enable-gtk2 \
+%make
+%inst

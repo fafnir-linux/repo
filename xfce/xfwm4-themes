@@ -1,0 +1,12 @@
+ver=4.10.0
+
+[deps]
+xfwm4
+
+[srcs]
+http://archive.xfce.org/src/art/%name/4.10/%name-%ver.tar.bz2
+
+[build]
+%conf \
+%inst
+find %dest/share/themes -name README -delete

@@ -1,0 +1,13 @@
+ver=1.1.5
+
+[deps]
+xorg-libxmu
+
+[srcs]
+https://www.x.org/releases/individual/app/xwininfo-%ver.tar.bz2
+
+[build]
+cd xwininfo-%ver
+%conf
+%make
+%inst

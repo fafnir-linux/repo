@@ -1,0 +1,12 @@
+ver=0.5
+
+[deps]
+xorg-libxres
+
+[srcs]
+https://xorg.freedesktop.org/archive/individual/app/%name-%ver.tar.bz2
+
+[build]
+%conf
+%make
+%inst

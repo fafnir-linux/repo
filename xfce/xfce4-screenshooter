@@ -1,0 +1,24 @@
+ver=1.8.2
+
+[deps]
+xfce4-panel
+libxfcegui4
+libsoup
+
+[srcs]
+http://archive.xfce.org/src/apps/%name/1.8/%name-%ver.tar.bz2
+
+[build]
+%conf \
+	 --mandir=/man \
+	 --libexecdir=/lib \
+	 --disable-nls \
+	 --disable-static \
+	 --disable-debug \
+	 --disable-dependency-tracking
+%make
+%inst
+rm -rf %dest/share/locale
+rm -rf %dest/share/xfce4/doc/{??,??_??,???}
+find %dest/share -type f -name '*.desktop' \
+	 -exec sed -r '/\[.+\]=/d' -i {} \;

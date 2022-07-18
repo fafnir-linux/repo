@@ -1,0 +1,10 @@
+ver=0.16
+
+[srcs]
+https://www.x.org/releases/individual/lib/libpciaccess-%ver.tar.bz2
+
+[build]
+cd libpciaccess-%ver
+%conf
+%make
+%inst

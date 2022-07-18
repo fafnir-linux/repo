@@ -1,0 +1,15 @@
+ver=1.4.0
+
+[deps]
+xorg-util-macros
+
+[srcs]
+https://www.x.org/releases/individual/lib/xtrans-%ver.tar.bz2
+
+[build]
+cd xtrans-%ver
+%conf
+%make
+%inst
+rm %dest/share/doc/xtrans/xtrans.xml
+rmdir %dest/share/doc/{xtrans,}

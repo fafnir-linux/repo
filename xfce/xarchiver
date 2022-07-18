@@ -1,0 +1,21 @@
+ver=0.5.4
+
+[deps]
+gtk
+desktop-file-utils
+
+[srcs]
+http://download.sourceforge.net/sourceforge/%name/%name-%ver.tar.bz2
+
+[build]
+%conf \
+	 --libexecdir=/lib/thunar \
+	 --disable-debug \
+	 --disable-dependency-tracking
+%make
+%inst
+rm -rf %dest/share/{doc,locale}
+find %dest/share -type f -name '*.desktop' \
+	 -exec sed -r '/\[.+\]=/d' -i {} \;
+sed -i %dest/share/applications/%name.desktop \
+'s|multipart|application|g'

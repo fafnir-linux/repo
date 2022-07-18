@@ -1,0 +1,16 @@
+ver=1.0.4
+
+[deps]
+xorg-bdftopcf
+xorg-font-util
+xorg-mkfontscale
+
+[srcs]
+https://www.x.org/releases/individual/font/font-adobe-utopia-75dpi-%ver.tar.bz2
+
+[build]
+cd font-adobe-utopia-75dpi-%ver
+%conf
+%make
+%inst
+rm %dest/share/fonts/X11/75dpi/fonts.dir

@@ -1,0 +1,13 @@
+ver=1.0.6
+
+[deps]
+xorg-xorgproto
+
+[srcs]
+https://www.x.org/releases/individual/app/rgb-%ver.tar.bz2
+
+[build]
+cd rgb-%ver
+%conf
+%make
+%inst

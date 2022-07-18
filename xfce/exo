@@ -1,0 +1,24 @@
+ver=0.10.7
+
+[deps]
+gtk
+libxfce4ui
+p5-uri
+
+[srcs]
+http://archive.xfce.org/src/xfce/%name/0.10/%name-%ver.tar.bz2
+
+[build]
+%conf \
+	 --mandir=/man \
+	 --libexecdir=/lib/exo \
+	 --disable-python \
+	 --disable-static \
+	 --disable-debug \
+	 --disable-nls \
+	 --disable-dependency-tracking
+%make
+%inst
+rm -r %dest/share/{locale,gtk-doc}
+find %dest/share -type f -name '*.desktop' \
+	 -exec sed -r '/\[.+\]=/d' -i {} \;

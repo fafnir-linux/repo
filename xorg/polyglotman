@@ -1,0 +1,11 @@
+ver=3.2
+
+[srcs]
+http://downloads.sourceforge.net/project/%name/%name/%ver/rman-%ver.tar.gz
+
+[build]
+cd rman-%ver
+%make
+install -d %dest/bin
+install -d %dest/share/man/man1
+make BINDIR=%dest/bin MANDIR=%dest/share/man/man1 install

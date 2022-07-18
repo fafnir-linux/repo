@@ -1,0 +1,13 @@
+ver=6.0.0
+
+[deps]
+xorg-libx11
+
+[srcs]
+https://www.x.org/releases/individual/lib/libXfixes-%ver.tar.bz2
+
+[build]
+cd libXfixes-%ver
+%conf
+%make
+%inst

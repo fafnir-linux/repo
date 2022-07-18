@@ -1,0 +1,13 @@
+ver=1.2.5
+
+[deps]
+xorg-libxmu
+
+[srcs]
+https://www.x.org/releases/individual/app/xprop-%ver.tar.bz2
+
+[build]
+cd xprop-%ver
+%conf
+%make
+%inst

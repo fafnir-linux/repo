@@ -1,2 +1,2 @@
 # repo
-Fafnir Linux packages
+Fafnir Linux packages that derived from CRUX Linux.

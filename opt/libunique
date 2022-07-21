@@ -13,6 +13,6 @@ http://download.gnome.org/sources/%name/1.1/%name-%ver.tar.bz2
 	 --disable-debug \
 	 --disable-gtk-doc \
 	 --with-x
-make CFLAGS+=" -Wno-error -Wno-deprecated-declarations"
+%make CFLAGS+=" -Wno-error -Wno-deprecated-declarations"
 %inst
 rm -r %dest/share/gtk-doc

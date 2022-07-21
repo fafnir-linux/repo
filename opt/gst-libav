@@ -14,5 +14,5 @@ meson build %name-%ver \
 	 -D b_ndebug=true \
 	 -D package-name="GStreamer (CRUX Linux)" \
 	 -D package-origin="https://crux.nu/"
-meson compile -C build -j ${JOBS:-1}
+meson compile -C build -j %threads
 DESTDIR=%dest meson install -C build

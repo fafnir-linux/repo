@@ -16,5 +16,5 @@ meson %name-%ver build \
 	 -Dman=false \
 	 -Dgtk_doc=false \
 	 -Ddocbook_docs=disabled
-ninja -C build -j ${JOBS-1}
+ninja -C build -j %threads
 DESTDIR=%dest meson install -C build

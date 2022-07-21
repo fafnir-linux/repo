@@ -15,6 +15,6 @@ cmake -S %name-%ver -B build %destMK_LIBJPEGTURBO \
 	 -D CMAKE_INSTALL_PREFIX= \
 	 -D CMAKE_INSTALL_LIBDIR=/lib \
 	 -D WITH_JPEG8=ON
-cmake --build build -j ${JOBS:-1}
+cmake --build build -j %threads
 DESTDIR=%dest cmake --install build
 rm -r %dest/share/doc

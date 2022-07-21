@@ -26,5 +26,5 @@ meson build \
 	 -D nls=disabled \
 	 -D package-name="GStreamer (CRUX Linux)" \
 	 -D package-origin="https://crux.nu/"
-ninja -C build -j ${JOBS:-1}
+ninja -C build -j %threads
 DESTDIR=%dest ninja -C build install

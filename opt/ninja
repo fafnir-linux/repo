@@ -1,7 +1,7 @@
 ver=1.11.0
 
 [srcs]
-https://github.com/%name-build/%name/archive/v%ver/%name-v%ver.tar.gz
+https://github.com/%name-build/%name/archive/v%ver/%name-v%ver.tar.gz::%name-%ver
 
 [build]
 /usr/bin/python3 configure.py --bootstrap

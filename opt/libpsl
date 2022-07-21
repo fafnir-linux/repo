@@ -15,5 +15,5 @@ meson setup build %name-%ver --prefix=%prefix \
 	 -D builtin=libidn2 \
 	 -D psl_file=/share/publicsuffix/effective_tld_names.dat \
 	 -D psl_testfile=/share/publicsuffix/test_psl.txt
-ninja -j ${JOBS-1} -C build
+ninja -j %threads -C build
 DESTDIR=%dest meson install -C build

@@ -14,5 +14,5 @@ cd %name2-%ver
 	 --alsa \
 	 --dbus \
 	 --classic
-./waf build -j ${JOBS-1}
+./waf build -j %threads
 ./waf install --destdir=%dest

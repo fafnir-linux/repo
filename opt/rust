@@ -77,7 +77,7 @@ fi
 export RUSTFLAGS+=' -A dead_code'
 export LIBGIT2_NO_PKG_CONFIG=1
 export RUST_BACKTRACE=full
-/usr/bin/python3 ./x.py build --config=%files/config.toml -j ${JOBS-1}
+/usr/bin/python3 ./x.py build --config=%files/config.toml -j %threads
 DESTDIR=%dest /usr/bin/python3 ./x.py --config=%files/config.toml install
 [ -e '/usr/bin/zsh' ] || rm -r %dest/share/zsh
 rm -r %dest/share/doc

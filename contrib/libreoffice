@@ -71,7 +71,7 @@ ls /usr/include/harfbuzz/hb-icu.h || (printf '[1;31m%-6s[m
 	 local build_date=$(date +%Y%m%d)
 	 NOCONFIGURE=1 ./autogen.sh
 	 %conf %destMK_LIBREOFFICE \
-	 --with-parallelism=${JOBS-1} \
+	 --with-parallelism=%threads \
 	 --with-external-tar="%files/tarballs" \
 	 --enable-{build-opensymbol,dbus,firebird-sdbc=no,gtk3,introspection=yes} \
 	 --enable-{ld=gold,lto,odk,openssl,pdfium,python=system,release-build} \

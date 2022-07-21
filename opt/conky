@@ -24,6 +24,6 @@ cmake -S %name-%ver -B build \
 	 -D BUILD_CURL=ON \
 	 -D BUILD_RSS=ON \
 	 -D RELEASE=TRUE
-cmake --build build -j ${JOBS:-1}
+cmake --build build -j %threads
 DESTDIR=%dest cmake --install build
 rm -r %dest/share/doc

@@ -14,7 +14,7 @@ cmake -S %name-%ver -B build \
 	 -D CMAKE_INSTALL_PREFIX= \
 	 -D TASK_DOCDIR=share/task \
 	 -D ENABLE_SYNC=OFF
-cmake --build build -j ${JOBS:-1}
+cmake --build build -j %threads
 DESTDIR=%dest cmake --install build
 prt-get isinst zsh || rm -r %dest/share/zsh
 rm %dest/share/task/{AUTHORS,COPYING,ChangeLog,NEWS,README.md,INSTALL,LICENSE}

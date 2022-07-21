@@ -82,7 +82,7 @@ echo 'ac_add_options --enable-default-toolkit=cairo-gtk3-wayland' >> .mozconfig 
 echo 'ac_add_options --enable-default-toolkit=cairo-gtk3' >> .mozconfig
 [[ -e '/usr/bin/ccache' ]] && echo 'ac_add_options --enable-ccache' >> .mozconfig
 export CC=clang CXX=clang++ AR=llvm-ar NM=llvm-nm RANLIB=llvm-ranlib
-export MOZ_MAKE_FLAGS="-j ${JOBS-1}"
+export MOZ_MAKE_FLAGS="-j %threads"
 export MOZBUILD_STATE_PATH="%destMK_SOURCE_DIR/.mozbuild"
 export MOZ_NOSPAM=1
 export MACH_USE_SYSTEM_PYTHON=1

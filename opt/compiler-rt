@@ -5,6 +5,7 @@ llvm
 
 [srcs]
 https://github.com/llvm/llvm-project/releases/download/llvmorg-%ver/compiler-rt-%ver.src.tar.xz
+https://github.com/llvm/llvm-project/releases/download/llvmorg-%ver/llvm-%ver.src.tar.xz
 
 [build]
 mv llvm-%ver.src llvm

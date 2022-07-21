@@ -15,7 +15,7 @@ meson build %name-%ver %destMK_GOBJECTINTROSPECTION \
 	 --wrap-mode nodownload \
 	 -D b_lto=true \
 	 -D b_pie=true
-ninja -C build -j ${JOBS:-1}
+ninja -C build -j %threads
 DESTDIR=%dest meson install -C build
 /usr/bin/python3 -m compileall -d /usr/lib/%name %dest
 /usr/bin/python3 -O -m compileall -d /usr/lib/%name %dest

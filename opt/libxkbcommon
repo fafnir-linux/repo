@@ -16,5 +16,5 @@ meson build libxkbcommon-xkbcommon-%ver %destMK_XKBCOMMON \
 	 -D b_lto=true \
 	 -D b_pie=true \
 	 -D enable-docs=false
-ninja -C build -j ${JOBS:-1}
+ninja -C build -j %threads
 DESTDIR=%dest ninja -C build install

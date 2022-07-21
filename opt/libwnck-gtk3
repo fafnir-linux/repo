@@ -10,7 +10,7 @@ https://ftp.gnome.org/pub/gnome/sources/libwnck/3.36/libwnck-%ver.tar.xz
 
 [build]
 meson build libwnck-%ver --prefix=%prefix
-ninja -C build -j ${JOBS:-1}
+ninja -C build -j %threads
 DESTDIR=%dest meson install -C build
 mv %dest/bin/wnck-urgency-monitor{,3}
 mv %dest/bin/wnckprop{,3}

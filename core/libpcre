@@ -4,7 +4,6 @@ ver=8.45
 https://downloads.sourceforge.net/project/pcre/pcre/%ver/pcre-%ver.tar.bz2
 
 [build]
-cd pcre-%ver
 %conf \
 	 --enable-utf8 \
 	 --enable-unicode-properties \

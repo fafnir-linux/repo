@@ -25,7 +25,7 @@ prt-get isinst nghttp2-libs && PKGMK_CMAKE+=' --system-nghttp2' || PKGMK_CMAKE+=
 	 --system-bzip2 \
 	 --system-libarchive \
 	 --system-zstd \
-	 --parallel=${JOBS:-1} \
+	 --parallel=%threads \
 $(prt-get isinst python3-sphinx >/dev/null && echo --sphinx-man)
 %make
 %inst

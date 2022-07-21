@@ -21,6 +21,6 @@ meson setup build %name-v%ver %destMK_UPOWER \
 	 -D udevrulesdir=/lib/udev/rules.d \
 	 -D systemdsystemunitdir=no \
 	 -D gtk-doc=false
-meson compile -C build -j ${JOBS:-1}
+meson compile -C build -j %threads
 DESTDIR=%dest meson install -C build
 rm -rf %dest/share/locale

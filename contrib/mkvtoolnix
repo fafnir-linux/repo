@@ -19,7 +19,7 @@ https://mkvtoolnix.download/sources/%name-%ver.tar.xz
 %conf %destMK_MKVTOOLNIX \
 	 --disable-precompiled-headers \
 	 --disable-update-check
-rake --multitask --jobs=${JOBS-1}
+rake --multitask --jobs=%threads
 rake DESTDIR=%dest install
 rm -r %dest/share/locale
 rm -rf %dest/share/doc

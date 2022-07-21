@@ -13,6 +13,6 @@ meson build %name-%ver \
 	 --wrap-mode nodownload \
 	 -D b_lto=true \
 	 -D b_pie=true
-ninja -C build -j ${JOBS:-1}
+ninja -C build -j %threads
 DESTDIR=%dest meson install -C build
 rm -r %dest/share/locale

@@ -7,7 +7,7 @@ bzip2
 xz
 
 [srcs]
-https://www.nano-editor.org/dist/v${version%%.*}/%name-%ver.tar.xz
+https://www.nano-editor.org/dist/v6/%name-%ver.tar.xz
 
 [build]
 %conf --disable-nls

@@ -17,7 +17,7 @@ install -m0755 %files/waf-2.0.9 waf
 /usr/bin/python3 waf configure ${PKGMK_MPV} \
 	 --enable-libarchive \
 	 --enable-libmpv-shared \
-	 -j ${JOBS-1}
+	 -j %threads
 /usr/bin/python3 waf build
 /usr/bin/python3 waf install --destdir=%dest
 rm -r %dest/share/doc

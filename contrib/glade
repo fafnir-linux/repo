@@ -13,6 +13,6 @@ prt-get isinst libxslt || PKGMK_GLADE+=' -D man=false'
 meson setup build %name-%ver ${PKGMK_GLADE} \
 	 --buildtype=plain \
 	 -D gladeui=true
-meson compile -C build -j ${JOBS-1}
+meson compile -C build -j %threads
 DESTDIR=%dest meson install -C build
 rm -r %dest/share/{help,locale}

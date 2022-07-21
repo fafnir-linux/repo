@@ -20,7 +20,7 @@ find -type f -name "*.pr[io]" | \
 xargs sed -i -e 's|INCLUDEPATH += |&$$QTWEBENGINE_ROOT/include |'
 prt-get isinst pulseaudio && sed -e '/link_pulseaudio/s/false/true/' \
 	 -i src/3rdparty/chromium/media/media_options.gni
-test -n "$JOBS" && export NINJAFLAGS+=" -j ${JOBS-1}"
+test -n "$JOBS" && export NINJAFLAGS+=" -j %threads"
 prt-get isinst clang && CC=clang CXX=clang++
 prt-get isinst ccache && export \
 QMAKE_CC="ccache ${CC:-gcc}" \

@@ -21,7 +21,7 @@ cmake -S allegro-%ver -B build -G Ninja \
 	 -D CMAKE_C_FLAGS_RELEASE="$CFLAGS" \
 	 -D WANT_DOCS_HTML=OFF \
 	 -Wno-dev
-cmake --build build -j ${JOBS:-1}
+cmake --build build -j %threads
 DESTDIR=%dest cmake --install build
 install -Dm644 allegro-%ver/misc/allegro.m4 \
 %dest/share/aclocal/allegro.m4

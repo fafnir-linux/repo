@@ -11,5 +11,5 @@ https://www.musicpd.org/download/libmpdclient/2/libmpdclient-%ver.tar.xz
 meson build --prefix=%prefix \
 	 --buildtype=plain \
 	 -D documentation=false
-DESTDIR=%dest ninja -C build -j ${JOBS:-1} install
+DESTDIR=%dest ninja -C build -j %threads install
 rm -r %dest/share/doc

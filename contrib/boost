@@ -26,7 +26,7 @@ prt-get isinst icu || PKGMK_BOOST+=' --disable-icu boost.locale.icu=off'
 ./b2 install ${PKGMK_BOOST} \
 	 --layout=system \
 	 --without-stacktrace \
-	 -j ${JOBS-1} \
+	 -j %threads \
 variant=release \
 debug-symbols=off \
 threading=multi \

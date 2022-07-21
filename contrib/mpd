@@ -56,7 +56,7 @@ meson setup %name-%ver build %destMK_MPD \
 	 -D pcre=enabled \
 	 -D sqlite=enabled \
 	 -D html_manual=false
-meson compile -C build -j ${JOBS-1}
+meson compile -C build -j %threads
 DESTDIR=%dest meson install -C build
 install -Dm 0644 %files/%name-%ver/doc/mpdconf.example %dest/etc/mpd/mpd.conf
 install -D %files/mpd %dest/etc/rc.d/mpd

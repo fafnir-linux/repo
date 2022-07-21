@@ -26,7 +26,7 @@ cmake -S poppler-%ver -B build\
 	 -D ENABLE_BOOST=OFF \
 	 -D WITH_NSS3=OFF \
 	 -D RUN_GPERF_IF_PRESENT=OFF
-cmake --build build -j ${JOBS:-1}
+cmake --build build -j %threads
 DESTDIR=%dest cmake --install build
 rm %dest/lib/libpoppler.so*
 rm %dest/lib/pkgconfig/poppler.pc

@@ -88,5 +88,5 @@ meson build %name-%ver \
 	 -D gobject-cast-checks=disabled \
 	 -D package-name="GStreamer Bad Plugins (CRUX Linux)" \
 	 -D package-origin="https://crux.nu/"
-ninja -C build -j ${JOBS:-1}
+ninja -C build -j %threads
 DESTDIR=%dest ninja -C build install

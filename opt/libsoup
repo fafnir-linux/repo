@@ -14,6 +14,6 @@ meson setup build %name-%ver \
 	 --wrap-mode nodownload \
 	 -D b_pie=true
 sed -i 's|-R/usr/lib||g' build/build.ninja
-meson compile -C build -j ${JOBS:-1}
+meson compile -C build -j %threads
 DESTDIR=%dest meson install -C build
 rm -r %dest/share/locale

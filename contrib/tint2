@@ -20,6 +20,6 @@ cmake -S %name-v%ver -B build -G Ninja \
 	 -D CMAKE_C_FLAGS_RELEASE="$CFLAGS" \
 	 -D ENABLE_TINT2CONF=OFF \
 	 -Wno-dev
-cmake --build build -j ${JOBS:-1}
+cmake --build build -j %threads
 DESTDIR=%dest cmake --install build
 rm -r %dest/{etc,usr/share/doc}

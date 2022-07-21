@@ -19,5 +19,5 @@ meson setup build %name-%ver \
 	 -D docs=disabled \
 	 -D tests=disabled \
 	 -D graphite=auto
-meson compile -C build -j ${JOBS:-1}
+meson compile -C build -j %threads
 DESTDIR=%dest meson install -C build

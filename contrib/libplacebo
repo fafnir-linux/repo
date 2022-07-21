@@ -21,5 +21,5 @@ meson setup build %name-v%ver \
 	 -D glslang=enabled \
 	 -D shaderc=enabled \
 	 -D lcms=enabled
-meson compile -C build -j ${JOBS:-1}
+meson compile -C build -j %threads
 DESTDIR=%dest meson install -C build

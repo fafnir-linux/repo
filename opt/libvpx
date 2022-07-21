@@ -4,7 +4,7 @@ ver=1.12.0
 yasm
 
 [srcs]
-https://github.com/webmproject/%name/archive/v%ver/%name-v%ver.tar.gz
+https://github.com/webmproject/%name/archive/v%ver/%name-v%ver.tar.gz::%name-%ver
 
 [build]
 %conf \
@@ -18,4 +18,4 @@ https://github.com/webmproject/%name/archive/v%ver/%name-v%ver.tar.gz
 	 --disable-install-docs \
 	 --disable-install-srcs
 %make
-make DIST_DIR=%dest install
+%inst

@@ -15,6 +15,6 @@ prt-get isinst icu || PKGMK_VTE+=' -D icu=false'
 meson build vte-%ver ${PKGMK_VTE} \
 	 --libexecdir=/lib \
 	 -D _systemd=false
-ninja -C build -j ${JOBS:-1}
+ninja -C build -j %threads
 DESTDIR=%dest ninja -C build install
 rm -r %dest/share/locale

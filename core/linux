@@ -1,0 +1,9 @@
+ver=5.11.18
+
+[srcs]
+https://cdn.kernel.org/pub/linux/kernel/v5.x/%name-%ver.tar.xz
+
+[build]
+make defconfig
+%make
+cp arch/%arch/boot/bzImage %dest/kernel

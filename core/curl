@@ -1,7 +1,7 @@
 ver=7.84.0
 
 [deps]
-openssl
+&libssl
 zlib
 zstd
 

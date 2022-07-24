@@ -1,0 +1,11 @@
+ver=%gcc3:ver%
+force-patch=yes
+workdir=gcc-%ver
+g++=yes
+
+[srcs]
+%gcc3:srcs%
+http://ftp.gnu.org/gnu/gcc/gcc-%ver/gcc-g++-%ver.tar.bz2::gcc-%ver
+
+[build]
+%gcc3:build%

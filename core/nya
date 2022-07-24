@@ -1,3 +1,7 @@
+[deps]
+curl
+libarchive
+
 [srcs]
 https://github.com/fafnirlinux/nya
 

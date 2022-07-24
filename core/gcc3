@@ -1,10 +1,8 @@
 ver=3.4.6
-force-patch=yes
-workdir=gcc-%ver
+g++=no
 
 [srcs]
 http://ftp.gnu.org/gnu/gcc/gcc-%ver/gcc-core-%ver.tar.bz2::gcc-%ver
-http://ftp.gnu.org/gnu/gcc/gcc-%ver/gcc-g++-%ver.tar.bz2::gcc-%ver
 
 [build]
 sed -i 's/struct ucontext/ucontext_t/' gcc/config/i386/linux.h
@@ -26,6 +24,12 @@ sed -i 's@/lib64/ld-linux-x86-64.so.2@/lib/ld-musl-x86_64.so.1@' gcc/config/i386
 sed -i 's@/lib/ld.so.1@/lib/ld-musl-powerpc.so.1@g' gcc/config/rs6000/sysv4.h
 sed -i 's@/lib/ld.so.1@/lib/ld-musl-powerpc.so.1@g' gcc/config/rs6000/linux64.h
 sed -i 's@/lib64/ld64.so.1@/lib/ld-musl-powerpc64.so.1@g' gcc/config/rs6000/linux64.h
+
+machine=
+if [ -n $CROSS_COMPILE ] ; then
+	machine=$($CC -dumpmachine)
+	xconfflags="--host=$machine --target=$machine --build=$(gcc -dumpmachine)"
+fi
 
 export gcc_cv_ld_hidden=yes
 export gcc_cv_as_hidden=yes
@@ -62,4 +66,4 @@ mv %dest/lib64/* %dest/lib/ || true
 rm -f %dest/lib/*.la || true
 
 ln -sf rawcc %dest/bin/gcc-%ver
-ln -sf g++ %dest/bin/g++-%ver
+[[ %g++ = yes ]] && ln -sf g++ %dest/bin/g++-%ver

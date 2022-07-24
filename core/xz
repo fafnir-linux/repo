@@ -4,7 +4,11 @@ ver=5.2.5
 https://tukaani.org/xz/%name-%ver.tar.xz
 
 [build]
-%conf --disable-nls
+printf "all:\n\ttrue\n\ninstall:\n\ttrue\n\n" > tests/Makefile.in
+%conf \
+	--disable-nls --with-pic --enable-shared \
+    --enable-symbol-versions \
+    --enable-static
 %make
 %inst
 rm -r %dest/share/doc/

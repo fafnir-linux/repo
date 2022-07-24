@@ -3,4 +3,4 @@ git://git.suckless.org/sbase
 
 [build]
 %make
-%inst PREFIX= MANPREFIX=/share/man
+make DESTDIR=$prefix PREFIX=%prefix MANPREFIX=/share/man install

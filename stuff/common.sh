@@ -23,19 +23,13 @@ fi
 
 export CC=$CC CXX=$CXX HOSTCC=$CC HOSTCXX=$CXX
 
+alias make=$MAKE
+
 xconfflags=""
 
 if [[ -n $STAGE ]] && [[ $STAGE = 0 ]]; then
-	xconfflags="--host=$($CC -dumpmachine)"
+	xconfflags="--build=$($CC -dumpmachine)"
 fi
-
-conf() {
-	./configure --prefix=%prefix $xconfflags
-}
-
-_make() {
-	$MAKE -j%threads $@
-}
 
 inst() {
     local action=$@

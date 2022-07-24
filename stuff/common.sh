@@ -40,7 +40,7 @@ inst() {
     if [[ -z $action ]]; then
         action="install"
     fi
-    $MAKE DESTDIR=%dest $action
+    make DESTDIR=%dest $action
 }
 
 apply_patch() {

@@ -7,4 +7,4 @@ bash
 https://github.com/dylanaraps/neofetch/archive/%ver/%name-%ver.tar.gz
 
 [build]
-install -Dt %dest/bin %name-%ver/neofetch
+make DESTDIR=%dest PREFIX=%prefix install

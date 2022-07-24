@@ -1,0 +1,16 @@
+ver=2.7.6
+
+[srcs]
+http://ftp.gnu.org/gnu/patch/patch-%ver.tar.xz
+
+[build]
+cp -f %stuff/config.sub .
+GNULIB_CPPFLAGS=$(%stuff/gnulibfix lib)
+
+CC="$CC -static" \
+CFLAGS="-D_GNU_SOURCE -Werror-implicit-function-declaration $GNULIB_CPPFLAGS" \
+LDFLAGS="-static" \
+	%conf
+
+%make
+%inst

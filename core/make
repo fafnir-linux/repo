@@ -1,10 +1,13 @@
 ver=4.3
 
 [srcs]
-http://ftpmirror.gnu.org/gnu/%name/%name-%ver.tar.lz
+http://ftp.gnu.org/gnu/make/make-%ver.tar.bz2
 
 [build]
-%conf --disable-nls
+cp -f %stuff/config.sub config/
+
+CFLAGS="-D_GNU_SOURCE" LDFLAGS="-static" \
+%conf --build=$($CC -dumpmachine) --disable-nls
+
 %make
 %inst
-rm -r %dest/share/info

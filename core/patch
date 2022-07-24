@@ -1,9 +1,16 @@
-ver=2.7.6.17-9c98
+ver=2.7.6
 
 [srcs]
-https://crux.nu/files/distfiles/%name-%ver.tar.xz
+http://ftp.gnu.org/gnu/patch/patch-%ver.tar.xz
 
 [build]
-%conf
+cp -f %stuff/config.sub .
+GNULIB_CPPFLAGS=$(%stuff/gnulibfix lib)
+
+CC="$CC -static" \
+CFLAGS="-D_GNU_SOURCE -Werror-implicit-function-declaration $GNULIB_CPPFLAGS" \
+LDFLAGS="-static" \
+	%conf
+
 %make
 %inst

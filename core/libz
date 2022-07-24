@@ -1,0 +1,10 @@
+[srcs]
+http://sortix.org/libz/release/libz-1.2.8.2015.12.26.tar.gz
+
+[build]
+CPPFLAGS="-D_GNU_SOURCE" \
+LDFLAGS="-Wl,-rpath-link=%rootfs/lib" \
+	%conf
+
+%make
+%inst

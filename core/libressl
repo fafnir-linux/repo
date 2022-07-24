@@ -1,4 +1,5 @@
 ver=3.1.5
+option=libssl
 
 [srcs]
 http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/%name-%ver.tar.gz

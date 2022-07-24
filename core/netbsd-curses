@@ -1,13 +1,16 @@
-#[deps]
-#libc
+ver=0.3.1
+option=curses
+
+[deps]
+libc
 
 [srcs]
-https://ftp.barfooze.de/pub/sabotage/tarballs/netbsd-curses-0.3.1.tar.xz
+https://ftp.barfooze.de/pub/sabotage/tarballs/netbsd-curses-%ver.tar.xz
 
 [build]
 cat << EOF > config.mak
-CC=gcc
-HOSTCC=gcc
+CC=$CC
+HOSTCC=$CC
 AR=ar
 RANLIB=ranlib
 CFLAGS=-fPIC

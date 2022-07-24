@@ -1,4 +1,5 @@
 ver=6.3
+option=curses
 
 [srcs]
 https://invisible-mirror.net/archives/%name/%name-%ver.tar.gz

@@ -1,4 +1,5 @@
 ver=2.34
+option=libc
 
 [srcs]
 https://ftp.gnu.org/gnu/%name/%name-%ver.tar.xz

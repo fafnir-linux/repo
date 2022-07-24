@@ -1,0 +1,12 @@
+--- a/ls.c	2022-07-25 01:15:59.486562294 +0300
++++ b/ls.c	2022-07-25 01:25:23.546848274 +0300
+@@ -1,9 +1,7 @@
+ /* See LICENSE file for copyright and license details. */
+ #include <sys/stat.h>
+ #include <sys/types.h>
+-#ifndef major
+ #include <sys/sysmacros.h>
+-#endif
+
+ #include <dirent.h>
+ #include <grp.h>

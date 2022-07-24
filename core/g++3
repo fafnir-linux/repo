@@ -8,4 +8,5 @@ gxx=yes
 http://ftp.gnu.org/gnu/gcc/gcc-%ver/gcc-g++-%ver.tar.bz2::gcc-%ver
 
 [build]
+&gcc3:patches
 &gcc3:build

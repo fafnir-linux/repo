@@ -30,13 +30,6 @@ sed -i 's@/lib64/ld64.so.1@/lib/ld-musl-powerpc64.so.1@g' gcc/config/rs6000/linu
 export gcc_cv_ld_hidden=yes
 export gcc_cv_as_hidden=yes
 
-ldflags=""
-
-if [[ $STAGE = 0 ]]; then
-	ldflags="-static"
-fi
-
-LDFLAGS_FOR_TARGET=$ldflags \
 %conf \
   --mandir=%prefix/share/man \
   --infodir=%prefix/infoXXX \

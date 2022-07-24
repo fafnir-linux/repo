@@ -27,8 +27,11 @@ alias make=$MAKE
 
 xconfflags=""
 
+unset CROSS_COMPILE
+
 if [[ -n $STAGE ]] && [[ $STAGE = 0 ]]; then
-	xconfflags="--build=$($CC -dumpmachine)"
+	xconfflags="--host=$($CC -dumpmachine) --with-sysroot=%rootfs"
+	CROSS_COMPILE=yes
 fi
 
 inst() {

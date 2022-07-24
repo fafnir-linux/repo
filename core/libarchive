@@ -12,11 +12,15 @@ zstd
 https://github.com/libarchive/libarchive/releases/download/v%ver/%name-%ver.tar.xz
 
 [build]
+CFLAGS="-D_BSD_SOURCE" \
 %conf \
-	 --without-xml2 \
-	 --without-expat \
-	 --without-nettle \
-	 --without-openssl \
-	 --without-libb2
+	--without-xml2 \
+	--without-expat \
+	--without-nettle \
+	--without-openssl \
+	--without-libb2 \
+	--enable-shared \
+	--enable-static
+[ -n "$CROSS_COMPILE" ] && %stuff/libtool.cross.gen --sysroot=%rootfs
 %make
 %inst

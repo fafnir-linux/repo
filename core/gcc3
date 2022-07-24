@@ -1,0 +1,56 @@
+ver=3.4.6
+
+[srcs]
+http://ftp.gnu.org/gnu/gcc/gcc-%ver/gcc-core-%ver.tar.bz2
+
+[build]
+sed -i 's/struct ucontext/ucontext_t/' gcc/config/i386/linux.h
+sed -i 's/struct ucontext/ucontext_t/' gcc/config/i386/linux64.h
+
+%stuff/libibertyfix libiberty
+
+find gcc/config -name linux.h -exec sed -i 's@struct siginfo@siginfo_t@g' "{}" \;
+
+sed -i 's@\./fixinc\.sh@-c true@' gcc/Makefile.in
+sed -i 's@O_CREAT@O_CREAT, 0770@' gcc/collect2.c
+sed -i 's@/lib/ld-linux.so.[12]@/lib/ld-musl-i386.so.1@' gcc/config/i386/linux.h
+sed -i 's@/lib/ld-linux.so.[12]@/lib/ld-musl-i386.so.1@' gcc/config/i386/linux64.h
+sed -i 's@/lib64/ld-linux-x86-64.so.2@/lib/ld-musl-x86_64.so.1@' gcc/config/i386/linux64.h
+sed -i 's@/lib/ld.so.1@/lib/ld-musl-powerpc.so.1@g' gcc/config/rs6000/sysv4.h
+sed -i 's@/lib/ld.so.1@/lib/ld-musl-powerpc.so.1@g' gcc/config/rs6000/linux64.h
+sed -i 's@/lib64/ld64.so.1@/lib/ld-musl-powerpc64.so.1@g' gcc/config/rs6000/linux64.h
+
+archflags=
+config_stage0_flags=
+
+%conf \
+  --mandir=%prefix/share/man \
+  --infodir=%prefix/infoXXX \
+  --disable-bootstrap --disable-nls \
+  --with-target-libiberty=no --with-target-zlib=no \
+  --disable-multilib --disable-shared
+
+%make \
+  CFLAGS="-DSTDC_HEADERS -Werror-implicit-function-declaration" \
+  LDFLAGS="-static" \
+  LDFLAGS_FOR_TARGET="-static"
+
+%inst install-gcc
+rm -rf $dest/infoXXX
+
+[ -z $machine ] && machine=$(%dest/bin/gcc -dumpmachine|sed 's/musl/gnu/')
+
+[ ! -e %dest/${machine} ] && ( cd %dest ; ln -sf . ${machine} )
+
+mv %dest/bin/gcc %dest/bin/rawcc
+ln -sf "rawcc" %dest/bin/gcc
+
+ln -sf ar %dest/bin/gcc-ar
+ln -sf ranlib %dest/bin/gcc-ranlib
+ln -sf nm %dest/bin/gcc-nm
+
+mv %dest/lib64/* %dest/lib/ || true
+
+rm -f %dest/lib/*.la || true
+
+ln -sf rawcc %dest/bin/gcc-%ver

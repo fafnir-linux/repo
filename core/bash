@@ -9,7 +9,6 @@ LDFLAGS="-static" \
 %conf \
 	 --exec-prefix= \
 	 --disable-nls \
-	 --with-curses \
 	 --without-bash-malloc \
   	--disable-rpath --enable-history bash_cv_getenv_redef=no \
   	--enable-job-control bash_cv_sys_named_pipes=yes \
@@ -17,6 +16,4 @@ LDFLAGS="-static" \
 make builtins/builtext.h
 %make READLINE_LIB=lib/readline/libreadline.a
 %inst
-install -D -m 755 bash %dest/bin/bash
-install -D -m 644 doc/bash.1 %dest/share/man/man1/bash.1
 install -D -m 644 %files/profile %dest/etc/profile

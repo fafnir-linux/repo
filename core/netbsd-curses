@@ -6,12 +6,11 @@ https://ftp.barfooze.de/pub/sabotage/tarballs/netbsd-curses-0.3.1.tar.xz
 
 [build]
 cat << EOF > config.mak
-CC=$CC
-HOSTCC=$HOSTCC
+CC=gcc
+HOSTCC=gcc
 AR=ar
 RANLIB=ranlib
-CFLAGS=-fPIC $optcflags
-LDFLAGS=$optldflags
+CFLAGS=-fPIC
 PREFIX=%prefix
 DESTDIR=%dest
 EOF

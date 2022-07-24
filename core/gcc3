@@ -1,4 +1,5 @@
 ver=3.4.6
+force-patch=yes
 
 [srcs]
 http://ftp.gnu.org/gnu/gcc/gcc-%ver/gcc-core-%ver.tar.bz2::gcc-%ver
@@ -52,7 +53,7 @@ rm -rf %dest/infoXXX
 [ ! -e %dest/${machine} ] && ( cd %dest ; ln -sf . ${machine} )
 
 mv %dest/bin/gcc %dest/bin/rawcc
-ln -sf "rawcc" %dest/bin/gcc
+ln -sf rawcc %dest/bin/gcc
 
 ln -sf ar %dest/bin/gcc-ar
 ln -sf ranlib %dest/bin/gcc-ranlib

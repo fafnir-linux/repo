@@ -1,13 +1,12 @@
 ver=3.4.6
 force-patch=yes
+workdir=gcc-%ver
 
 [srcs]
 http://ftp.gnu.org/gnu/gcc/gcc-%ver/gcc-core-%ver.tar.bz2::gcc-%ver
 http://ftp.gnu.org/gnu/gcc/gcc-%ver/gcc-g++-%ver.tar.bz2::gcc-%ver
 
 [build]
-cd gcc-%ver
-
 sed -i 's/struct ucontext/ucontext_t/' gcc/config/i386/linux.h
 sed -i 's/struct ucontext/ucontext_t/' gcc/config/i386/linux64.h
 
@@ -31,7 +30,13 @@ sed -i 's@/lib64/ld64.so.1@/lib/ld-musl-powerpc64.so.1@g' gcc/config/rs6000/linu
 export gcc_cv_ld_hidden=yes
 export gcc_cv_as_hidden=yes
 
-LDFLAGS_FOR_TARGET="-static" \
+ldflags=""
+
+if [[ $STAGE = 0 ]]; then
+	ldflags="-static"
+fi
+
+LDFLAGS_FOR_TARGET=$ldflags \
 %conf \
   --mandir=%prefix/share/man \
   --infodir=%prefix/infoXXX \

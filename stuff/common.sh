@@ -16,11 +16,7 @@ if [[ -f %rootfs/bin/patch ]]; then
 	PATCH=%rootfs/bin/patch
 fi
 
-export CC=$CC CXX=$CXX HOSTCC=$CC
-
-init_flags() {
-	:
-}
+export CC=$CC CXX=$CXX HOSTCC=$CC HOSTCXX=$CXX
 
 inst() {
     local action=$*

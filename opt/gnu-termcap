@@ -7,4 +7,4 @@ https://ftp.gnu.org/gnu/%name/%name-%ver.tar.gz
 %make CFLAGS="-D_GNU_SOURCE -fPIC"
 %inst
 mkdir -p %dest/etc
-cp termcap.src $dest/etc/termcap
+cp termcap.src %dest/etc/termcap

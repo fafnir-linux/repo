@@ -12,10 +12,10 @@ https://thrysoee.dk/editline/%name-20210910-3.1.tar.gz
 %inst
 rm %dest/share/man/man3/history.3
 ln -sf editline.3 %dest/share/man/man3/el.3
-ln -sf libedit.a $dest/lib/libreadline.a
-ln -sf libedit.so $dest/lib/libreadline.so
-mkdir -p $dest/include/readline
-touch $dest/include/readline/history.h
-touch $dest/include/readline/tilde.h
-ln -sf ../editline/readline.h $dest/include/readline/readline.h
-ln -sf libedit.pc $dest/lib/pkgconfig/readline.pc
+ln -sf libedit.a %dest/lib/libreadline.a
+ln -sf libedit.so %dest/lib/libreadline.so
+mkdir -p %dest/include/readline
+touch %dest/include/readline/history.h
+touch %dest/include/readline/tilde.h
+ln -sf ../editline/readline.h %dest/include/readline/readline.h
+ln -sf libedit.pc %dest/lib/pkgconfig/readline.pc

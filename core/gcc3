@@ -1,5 +1,5 @@
 ver=3.4.6
-g++=no
+gxx=no
 
 [srcs]
 http://ftp.gnu.org/gnu/gcc/gcc-%ver/gcc-core-%ver.tar.bz2::gcc-%ver
@@ -10,9 +10,17 @@ sed -i 's/struct ucontext/ucontext_t/' gcc/config/i386/linux64.h
 
 %stuff/libibertyfix libiberty
 
-sed -i 's,gcc_no_link=yes,gcc_no_link=no,' ./libstdc++-v3/configure
-mv ./libstdc\+\+-v3/config/os/gnu-linux ./libstdc\+\+-v3/config/os/gnu-linux.org
-cp -r ./libstdc\+\+-v3/config/os/generic ./libstdc\+\+-v3/config/os/gnu-linux
+cplusplus_confflags=
+cplusplus_targets=
+
+if [[ %gxx = yes ]]; then
+	sed -i 's,gcc_no_link=yes,gcc_no_link=no,' ./libstdc++-v3/configure
+	mv ./libstdc\+\+-v3/config/os/gnu-linux ./libstdc\+\+-v3/config/os/gnu-linux.org
+	cp -r ./libstdc\+\+-v3/config/os/generic ./libstdc\+\+-v3/config/os/gnu-linux
+
+	cplusplus_confflags="--enable-languages=c,c++ --enable-clocale=generic --disable-libstdcxx-pch"
+	cplusplus_targets=install-target-libstdc++-v3
+fi
 
 find gcc/config -name linux.h -exec sed -i 's@struct siginfo@siginfo_t@g' "{}" \;
 
@@ -31,23 +39,31 @@ if [ -n $CROSS_COMPILE ] ; then
 	xconfflags="--host=$machine --target=$machine --build=$(gcc -dumpmachine)"
 fi
 
+config_arch_target_ldflags=
+config_stage0_flags=--enable-shared
+test $STAGE = 0 && config_stage0_flags=--disable-shared
+
+if test $STAGE = 0 && test %gxx = yes; then
+	config_arch_target_ldflags="-static"
+fi
+
 export gcc_cv_ld_hidden=yes
 export gcc_cv_as_hidden=yes
 
+LDFLAGS_FOR_TARGET="$config_arch_target_ldflags" \
 %conf \
   --mandir=%prefix/share/man \
   --infodir=%prefix/infoXXX \
   --disable-bootstrap --disable-nls \
   --with-target-libiberty=no --with-target-zlib=no \
-  --disable-multilib --disable-shared \
-  --enable-languages=c,c++ --enable-clocale=generic --disable-libstdcxx-pch
+  $config_arch_flags $cplusplus_confflags $xconfflags $config_stage0_flags
 
 %make \
   CFLAGS="-DSTDC_HEADERS -Werror-implicit-function-declaration" \
   LDFLAGS="-static" \
   LDFLAGS_FOR_TARGET="-static"
 
-%inst install-gcc install-target-libstdc++-v3
+%inst install-gcc $cplusplus_targets
 rm -rf %dest/infoXXX
 
 [ -z $machine ] && machine=$(%dest/bin/gcc -dumpmachine|sed 's/musl/gnu/')
@@ -66,4 +82,4 @@ mv %dest/lib64/* %dest/lib/ || true
 rm -f %dest/lib/*.la || true
 
 ln -sf rawcc %dest/bin/gcc-%ver
-[[ %g++ = yes ]] && ln -sf g++ %dest/bin/g++-%ver
+[[ %gxx = yes ]] && ln -sf g++ %dest/bin/g++-%ver

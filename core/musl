@@ -5,7 +5,8 @@ http://www.musl-libc.org/releases/%name-%ver.tar.gz
 
 [build]
 %conf --syslibdir=/lib
-%mk
+%make
+%inst
 
 mkdir -p %dest/bin
 ln -sf ../lib/libc.so %dest/bin/ldd

@@ -1,5 +1,18 @@
 #!/bin/sh
 
+CC=gcc
+PATCH=patch
+
+if [[ -f %rootfs/bin/gcc ]]; then
+	CC=%rootfs/bin/gcc
+fi
+
+if [[ -f %rootfs/bin/patch ]]; then
+	PATCH=%rootfs/bin/patch
+fi
+
+export CC=$CC HOSTCC=$CC
+
 init_flags() {
 	:
 }
@@ -14,5 +27,5 @@ inst() {
 
 apply_patch() {
     echo "applying patch $(basename $1)"
-    patch -p1 < $1
+    $PATCH -p1 < $1
 }

@@ -1,7 +1,7 @@
 ver=3.4.6
 
 [srcs]
-http://ftp.gnu.org/gnu/gcc/gcc-%ver/gcc-core-%ver.tar.bz2
+http://ftp.gnu.org/gnu/gcc/gcc-%ver/gcc-core-%ver.tar.bz2::gcc-%ver
 
 [build]
 sed -i 's/struct ucontext/ucontext_t/' gcc/config/i386/linux.h
@@ -36,7 +36,7 @@ config_stage0_flags=
   LDFLAGS_FOR_TARGET="-static"
 
 %inst install-gcc
-rm -rf $dest/infoXXX
+rm -rf %dest/infoXXX
 
 [ -z $machine ] && machine=$(%dest/bin/gcc -dumpmachine|sed 's/musl/gnu/')
 

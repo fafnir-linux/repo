@@ -30,7 +30,8 @@ xconfflags=""
 unset CROSS_COMPILE
 
 if [[ -n $STAGE ]] && [[ $STAGE = 0 ]]; then
-	xconfflags="--host=$($CC -dumpmachine) --with-sysroot=%rootfs"
+	xconfflags="--host=$($CC -dumpmachine)"
+	#xconfflags="$xconfflags --with-sysroot=%rootfs"
 	CROSS_COMPILE=yes
 fi
 

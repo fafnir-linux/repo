@@ -1,9 +1,9 @@
 ver=1.7.0
 
 [deps]
-util-linux,
-expat,
-db,
+util-linux
+expat
+db
 gdbm
 
 [srcs]

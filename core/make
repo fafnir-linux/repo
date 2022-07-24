@@ -1,13 +1,16 @@
 ver=4.3
 
 [srcs]
-http://ftp.gnu.org/gnu/make/make-%ver.tar.bz2
+http://ftp.gnu.org/gnu/make/make-%ver.tar.lz
 
 [build]
 cp -f %stuff/config.sub config/
 
 CFLAGS="-D_GNU_SOURCE" LDFLAGS="-static" \
-%conf --build=$($CC -dumpmachine) --disable-nls
+%conf \
+	--build=$($CC -dumpmachine) \
+	--without-guile \
+	--disable-nls
 
 %make
 %inst

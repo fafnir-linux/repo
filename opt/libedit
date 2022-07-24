@@ -1,7 +1,8 @@
 ver=20210910_3.1
 
 [deps]
-termcap
+#termcap
+netbsd-curses
 
 [srcs]
 https://thrysoee.dk/editline/%name-20210910-3.1.tar.gz

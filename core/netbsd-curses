@@ -1,0 +1,20 @@
+#[deps]
+#libc
+
+[srcs]
+https://ftp.barfooze.de/pub/sabotage/tarballs/netbsd-curses-0.3.1.tar.xz
+
+[build]
+cat << EOF > config.mak
+CC=$CC
+HOSTCC=$HOSTCC
+AR=ar
+RANLIB=ranlib
+CFLAGS=-fPIC $optcflags
+LDFLAGS=$optldflags
+PREFIX=%prefix
+DESTDIR=%dest
+EOF
+
+%make
+make install

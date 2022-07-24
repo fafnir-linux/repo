@@ -1,0 +1,6 @@
+[srcs]
+git://git.suckless.org/ubase
+
+[build]
+find . -name '*.c' -exec sed -i '1i #include <sys/sysmacros.h>' '{}' ';'
+&sbase:build

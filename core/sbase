@@ -1,0 +1,6 @@
+[srcs]
+git://git.suckless.org/sbase
+
+[build]
+%make
+%inst PREFIX= MANPREFIX=/share/man

@@ -8,7 +8,6 @@ cp -f %stuff/config.sub config/
 
 CFLAGS="-D_GNU_SOURCE" LDFLAGS="-static" \
 %conf \
-	--build=$($CC -dumpmachine) \
 	--without-guile \
 	--disable-nls
 

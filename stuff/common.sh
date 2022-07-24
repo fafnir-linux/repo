@@ -2,6 +2,7 @@
 
 CC=gcc
 CXX=g++
+MAKE=make
 PATCH=patch
 
 if [[ -f %rootfs/bin/gcc ]]; then
@@ -12,18 +13,36 @@ if [[ -f %rootfs/bin/g++ ]]; then
 	CXX=%rootfs/bin/g++
 fi
 
+if [[ -f %rootfs/bin/make ]]; then
+	MAKE=%rootfs/bin/make
+fi
+
 if [[ -f %rootfs/bin/patch ]]; then
 	PATCH=%rootfs/bin/patch
 fi
 
 export CC=$CC CXX=$CXX HOSTCC=$CC HOSTCXX=$CXX
 
+xconfflags=""
+
+if [[ -n $STAGE ]] && [[ $STAGE = 0 ]]; then
+	xconfflags="--host=$($CC -dumpmachine)"
+fi
+
+conf() {
+	./configure --prefix=%prefix $xconfflags
+}
+
+_make() {
+	$MAKE -j%threads $@
+}
+
 inst() {
-    local action=$*
+    local action=$@
     if [[ -z $action ]]; then
         action="install"
     fi
-    make DESTDIR=%dest $action
+    $MAKE DESTDIR=%dest $action
 }
 
 apply_patch() {

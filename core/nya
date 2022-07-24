@@ -1,0 +1,9 @@
+[srcs]
+https://github.com/fafnirlinux/nya
+
+[build]
+mkdir build
+cd build
+cmake ..
+%make
+%inst

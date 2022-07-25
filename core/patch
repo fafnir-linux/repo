@@ -5,6 +5,7 @@ http://ftp.gnu.org/gnu/patch/patch-%ver.tar.xz
 
 [build]
 cp -f %stuff/config.sub .
+
 GNULIB_CPPFLAGS=$(%stuff/gnulibfix lib)
 
 CC="$CC -static" \

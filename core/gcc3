@@ -55,7 +55,7 @@ LDFLAGS_FOR_TARGET="$config_arch_target_ldflags" \
 %conf \
   --mandir=%prefix/share/man \
   --infodir=%prefix/infoXXX \
-  --disable-bootstrap --disable-nls \
+  --disable-bootstrap --disable-nls --disable-multilib \
   --with-target-libiberty=no --with-target-zlib=no \
   $config_arch_flags $cplusplus_confflags $config_stage0_flags
 

@@ -7,7 +7,7 @@ https://busybox.net/downloads/%name-%ver.tar.bz2
 [build]
 cp %files/config .config
 %make busybox
-%make \
+make \
   CONFIG_PREFIX=%dest \
   install
 rm -f %dest/linuxrc
